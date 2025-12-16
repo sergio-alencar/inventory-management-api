@@ -1,0 +1,6 @@
+@GestaoEstoqueApi_HostAddress = http://localhost:5155
+
+GET {{GestaoEstoqueApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
