@@ -1,94 +1,102 @@
-using InventoryManagementApi.Data;
+// InventoryManagementApi/Controllers/ProductsController.cs
+
 using InventoryManagementApi.Models;
+using InventoryManagementApi.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections;
-using System.Diagnostics.Eventing.Reader;
-using System.Threading.Tasks;
 
-[Route("api/[controller]")]
-[ApiController]
-public class ProductsController : ControllerBase
+namespace InventoryManagementApi.Controllers
 {
-    private readonly AppDbContext _context;
-
-    public ProductsController(AppDbContext context)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductsController : ControllerBase
     {
-        _context = context;
-    }
+        private readonly IProductRepository _repository;
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
-    {
-        return await _context.Products.ToListAsync();
-    }
-
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Product>> GetProduct(int id)
-    {
-        var product = await _context.Products.FindAsync(id);
-
-        if (product == null)
+        public ProductsController(IProductRepository repository)
         {
-            return NotFound();
+            _repository = repository;
         }
 
-        return product;
-    }
-
-    [HttpPost]
-    public async Task<ActionResult<Product>> PostProduct(Product product)
-    {
-        _context.Products.Add(product);
-
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
-    }
-
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutProduct(int id, Product product)
-    {
-        if (id != product.Id)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return BadRequest();
+            var products = await _repository.GetAllAsync();
+            return Ok(products);
         }
 
-        _context.Entry(product).State = EntityState.Modified;
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Product>> GetProduct(int id)
+        {
+            var product = await _repository.GetByIdAsync(id);
 
-        try
-        {
-            await _context.SaveChangesAsync();
+            if (product == null)
+            {
+                return NotFound(new { message = $"Product with ID {id} not found." });
+            }
+
+            return product;
         }
-        catch (DbUpdateConcurrencyException)
+
+        [HttpPost]
+        public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            if (!_context.Products.Any(item => item.Id == id))
+            await _repository.AddAsync(product);
+
+            var success = await _repository.SaveChangesAsync();
+
+            if (!success)
+            {
+                return BadRequest(new { message = "Error saving product." });
+            }
+
+            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutProduct(int id, Product product)
+        {
+            if (id != product.Id)
+            {
+                return BadRequest(new { message = "The ID provided does not match the product ID." });
+            }
+
+            var existingProduct = await _repository.GetByIdAsync(id);
+            if (existingProduct == null)
             {
                 return NotFound();
             }
-            else
+
+            await _repository.UpdateAsync(product);
+
+            try
             {
-                throw;
+                await _repository.SaveChangesAsync();
             }
+            catch (Exception)
+            {
+                return StatusCode(500, "Internal error updating the data.");
+            }
+
+            return NoContent();
         }
 
-        return NoContent();
-    }
-
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteProduct(int id)
-    {
-        var product = await _context.Products.FindAsync(id);
-
-        if (product == null)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
         {
-            return NotFound();
+            _logger.LogInformation("Trying to delete product ID: {Id}", id);
+
+            var product = await _repository.GetByIdAsync(id);
+            if (product == null)
+            {
+                _logger.LogWarning("Failed to delete: Product {Id} not found.", id);
+                return NotFound();
+            }
+
+            await _repository.DeleteAsync(id);
+            await _repository.SaveChangesAsync();
+
+            _logger.LogInformation("Product {Id} successfully deleted.", id);
+            return NoContent();
         }
-
-        _context.Products.Remove(product);
-
-        await _context.SaveChangesAsync();
-
-        return NoContent();
     }
 }

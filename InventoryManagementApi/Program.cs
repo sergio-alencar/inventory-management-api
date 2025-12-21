@@ -1,9 +1,19 @@
+// InventoryManagementApi/Program.cs
+
 using InventoryManagementApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Authentication.ExtendedProtection;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+long.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/inventory_logs.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -27,7 +37,11 @@ builder.Services.AddCors(FileOptions =>
     );
 });
 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 var app = builder.Build();
+
+app.UseMiddleware<InventoryManagementApi.Middleware.ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

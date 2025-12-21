@@ -3,17 +3,32 @@
 import React, { useEffect, useState } from "react";
 import type { Product } from "../types/Product";
 import { createProduct, updateProduct } from "../api";
+import { SaveImg } from "./images/SaveImg";
+import { CancelImg } from "./images/CancelImg";
+import FormField from "./FormField";
 
 interface ProductFormProps {
   productToEdit: Product | null;
   onSuccess: () => void;
   onCancel: () => void;
+  onError: (message: string) => void;
 }
+
+const maskCurrency = (value: string) => {
+  const onlyDigits = value.replace(/\D/g, "");
+  const numericValue = Number(onlyDigits) / 100;
+
+  return new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(numericValue);
+};
 
 const ProductForm: React.FC<ProductFormProps> = ({
   productToEdit,
   onSuccess,
   onCancel,
+  onError,
 }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,6 +36,8 @@ const ProductForm: React.FC<ProductFormProps> = ({
     price: 0,
     quantity: 0,
   });
+
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
     if (productToEdit) {
@@ -40,8 +57,30 @@ const ProductForm: React.FC<ProductFormProps> = ({
     }
   }, [productToEdit]);
 
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "O nome é obrigatório.";
+    }
+
+    if (formData.price <= 0) {
+      newErrors.price = "O preço deve ser maior que zero.";
+    }
+
+    if (formData.quantity < 0) {
+      newErrors.quantity = "A quantidade não pode ser negativa.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+
+    if (!validate()) return;
 
     try {
       if (productToEdit) {
@@ -55,109 +94,109 @@ const ProductForm: React.FC<ProductFormProps> = ({
       onSuccess();
     } catch (err) {
       console.error("Error saving product:", err);
-      alert(
+      setErrors({ form: "Erro ao conectar com o servidor. Tente novamente." });
+      onError(
         `Erro ao salvar produto: ${err instanceof Error ? err.message : "Verifique o console."}`,
       );
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
 
-    setFormData({
-      ...formData,
-      [name]: type === "number" ? parseFloat(value) || 0 : value,
-    });
+    if (name === "price") {
+      const formatted = maskCurrency(value);
+      const numericValue = Number(
+        formatted.replace(/\./g, "").replace(",", "."),
+      );
+
+      setFormData((prev) => ({ ...prev, price: numericValue }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: name === "quantity" ? Number(value) : value,
+      }));
+    }
+
+    if (errors[name]) {
+      setErrors((prev) => {
+        const newErrs = { ...prev };
+        delete newErrs[name];
+        return newErrs;
+      });
+    }
   };
 
   return (
-    <div className="my-5 rounded-lg bg-gray-100 p-6">
-      <h2 className="mb-4 text-xl font-black">
+    <div className="my-5 rounded-lg bg-gray-100 p-6 text-black shadow-inner">
+      <h2 className="mb-4 text-xl font-black text-gray-800">
         {productToEdit ? "Editar Produto" : "Adicionar Novo Produto"}
       </h2>
+
+      {errors.form && (
+        <p className="mb-4 text-sm font-bold text-red-600">{errors.form}</p>
+      )}
+
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-2 gap-4 [&>*]:mb-2"
+        noValidate
+        className="grid grid-cols-2 gap-4"
       >
-        <div className="grid">
-          <label htmlFor="name">Nome</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="rounded border p-2 focus:border-blue-500 focus:ring-blue-500"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <FormField
+          label="Nome"
+          name="name"
+          className="col-span-full"
+          value={formData.name}
+          onChange={handleChange}
+          error={errors.name}
+          placeholder="Ex.: Teclado Mecânico"
+        />
 
-        <div className="grid">
-          <label htmlFor="description">Descrição</label>
-          <input
-            type="text"
-            name="description"
-            id="description"
-            className="rounded border p-2 focus:border-blue-500 focus:ring-blue-500"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </div>
+        <FormField
+          label="Descrição"
+          name="description"
+          className="col-span-full"
+          value={formData.description}
+          onChange={handleChange}
+        />
 
-        <div className="grid">
-          <label htmlFor="price">Preço</label>
-          <input
-            type="number"
-            name="price"
-            id="price"
-            step="0.01"
-            className="rounded border p-2 focus:border-blue-500 focus:ring-blue-500"
-            value={formData.price}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <FormField
+          label="Preço"
+          name="price"
+          type="text"
+          prefix="R$"
+          value={new Intl.NumberFormat("pt-BR", {
+            minimumFractionDigits: 2,
+          }).format(formData.price)}
+          onChange={handleChange}
+          error={errors.price}
+        />
 
-        <div className="grid">
-          <label htmlFor="quantity">Quantidade</label>
-          <input
-            type="number"
-            name="quantity"
-            id="quantity"
-            className="rounded border p-2 focus:border-blue-500 focus:ring-blue-500"
-            value={formData.quantity}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <FormField
+          label="Quantidade"
+          name="quantity"
+          type="number"
+          value={formData.quantity}
+          onChange={handleChange}
+          error={errors.quantity}
+        />
 
-        <div className="col-span-full mt-2 flex justify-center gap-4">
-          <button type="submit">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#000"
-              className="size-8 self-end transition duration-150 hover:fill-green-700"
-            >
-              <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z" />
-              <title>Salvar</title>
-            </svg>
+        <div className="col-span-full mt-4 flex justify-center gap-4 pt-4">
+          <button
+            type="submit"
+            title="Salvar"
+            className="transition-transform hover:scale-110"
+          >
+            <SaveImg />
           </button>
 
-          <button type="button" onClick={onCancel}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#000"
-              className="size-8 transition duration-150 hover:fill-red-700"
-            >
-              <path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
-              <title>Cancelar</title>
-            </svg>
+          <button
+            type="button"
+            onClick={onCancel}
+            title="Cancelar"
+            className="transition-transform hover:scale-110"
+          >
+            <CancelImg />
           </button>
         </div>
       </form>

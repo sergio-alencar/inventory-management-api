@@ -4,9 +4,15 @@ import React from "react";
 
 interface AddProductButtonProps {
   onClick: () => void;
+  isLoading: boolean;
 }
 
-const AddProductButton: React.FC<AddProductButtonProps> = ({ onClick }) => {
+const AddProductButton: React.FC<AddProductButtonProps> = ({
+  onClick,
+  isLoading,
+}) => {
+  if (isLoading) return null;
+
   return (
     <button
       onClick={onClick}
