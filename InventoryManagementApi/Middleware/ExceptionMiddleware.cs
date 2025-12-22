@@ -38,7 +38,7 @@ public class ExceptionMiddleware
         {
             StatusCode = context.Response.StatusCode,
             Message = "Internal error on server. Details were logged in the system.",
-            Detailed = exception.Message
+            Detailed = exception.Message,
         };
 
         return context.Response.WriteAsync(JsonSerializer.Serialize(response));

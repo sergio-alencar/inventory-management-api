@@ -1,4 +1,4 @@
-// src/components/AddProductButton.tsx
+// inventory-management-ui/src/components/AddProductButton.tsx
 
 import React from "react";
 
@@ -16,7 +16,7 @@ const AddProductButton: React.FC<AddProductButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="mx-6 mb-6 max-w-max self-end rounded-lg bg-blue-950 px-4 py-2 text-right text-sm font-semibold uppercase text-white shadow transition duration-150 hover:bg-blue-900"
+      className="max-w-max self-end rounded-lg bg-indigo-950 px-4 py-2 text-xs font-semibold uppercase text-slate-50 shadow transition-colors hover:bg-indigo-900"
     >
       Adicionar Produto
     </button>

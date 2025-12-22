@@ -1,9 +1,8 @@
-// src/App.tsx
+// inventory-management-ui/src/App.tsx
 
 import { useCallback, useEffect, useState } from "react";
 import ProductList from "./components/ProductList";
 import ProductForm from "./components/ProductForm";
-import AddProductButton from "./components/AddProductButton";
 import type { Product } from "./types/Product";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -11,6 +10,7 @@ import "./App.css";
 import { deleteProduct, fetchProducts } from "./api";
 import ConfirmModal from "./components/ConfirmModal";
 import ErrorModal from "./components/ErrorModal";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -24,23 +24,39 @@ function App() {
   );
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const pageSize = 5;
 
-  const loadData = useCallback(async () => {
+  const loadData = useCallback(async (page: number) => {
     try {
       setLoading(true);
-      const response = await fetchProducts();
-      setProducts(response.data);
+      const response = await fetchProducts(page, pageSize);
+
+      if (response.data && response.data.items) {
+        setProducts(response.data.items);
+        setTotalPages(response.data.totalPages);
+        setCurrentPage(response.data.pageNumber);
+      }
+
       setError(null);
     } catch (err) {
       setError("Falha ao procurar produtos.");
+      console.error(err);
     } finally {
       setLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    loadData();
-  }, [loadData]);
+    loadData(currentPage);
+  }, [loadData, currentPage]);
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
 
   const handleEdit = (product: Product) => {
     setEditingProduct(product);
@@ -49,7 +65,9 @@ function App() {
 
   const handleSuccess = () => {
     setShowForm(false);
-    loadData();
+    setEditingProduct(null);
+    setCurrentPage(1);
+    loadData(1);
   };
 
   const requestDelete = (id: number) => {
@@ -61,7 +79,7 @@ function App() {
     if (productIdToDelete) {
       try {
         await deleteProduct(productIdToDelete);
-        loadData();
+        loadData(currentPage);
       } catch (err) {
         setErrorMessage("Erro ao excluir produto.");
         setIsErrorModalOpen(true);
@@ -78,44 +96,45 @@ function App() {
   };
 
   return (
-    <>
-      <Header />
-      <div className="min-h-screen bg-gray-900 p-8 text-[#eeeeee]">
-        <div className="mx-auto flex max-w-4xl flex-col">
-          <h1 className="mb-8 text-center text-4xl font-extrabold text-blue-400">
-            Gestão de Inventário
-          </h1>
-
-          {!showForm ? (
-            <AddProductButton
-              onClick={() => {
-                setEditingProduct(null);
-                setShowForm(true);
-              }}
-              isLoading={loading}
-            />
-          ) : (
-            <ProductForm
-              productToEdit={editingProduct}
-              onSuccess={handleSuccess}
-              onCancel={() => setShowForm(false)}
-              onError={showError}
-            />
-          )}
-
+    <div className="flex min-h-screen flex-col justify-between bg-slate-100">
+      <div>
+        <Header />
+        <div className="mx-auto flex max-w-4xl flex-col p-8">
           <ProductList
             products={products}
             loading={loading}
             error={error}
             onEdit={handleEdit}
             onDelete={requestDelete}
+            showForm={showForm}
+            onAddClick={() => {
+              setEditingProduct(null);
+              setShowForm(true);
+            }}
           />
+
+          {totalPages > 1 && (
+            <Pagination
+              current={currentPage}
+              total={totalPages}
+              onPageChange={handlePageChange}
+            />
+          )}
         </div>
+
+        {showForm && (
+          <ProductForm
+            productToEdit={editingProduct}
+            onSuccess={handleSuccess}
+            onCancel={() => setShowForm(false)}
+            onError={showError}
+          />
+        )}
 
         <ConfirmModal
           isOpen={isDeleteModalOpen}
           title="Confirmar Exclusão"
-          message="Tem certeza que deseja remover este produto? Esta ação não pode ser desfeita."
+          message="Tem certeza que deseja remover este produto?"
           onConfirm={confirmDelete}
           onCancel={() => setIsDeleteModalOpen(false)}
         />
@@ -126,9 +145,8 @@ function App() {
           onClose={() => setIsErrorModalOpen(false)}
         />
       </div>
-
       <Footer />
-    </>
+    </div>
   );
 }
 

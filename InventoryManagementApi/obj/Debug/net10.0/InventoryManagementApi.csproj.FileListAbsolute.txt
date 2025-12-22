@@ -215,3 +215,12 @@ C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\De
 C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\obj\Debug\net10.0\InventoryManagementApi.sourcelink.json
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.AspNetCore.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
+C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\bin\Debug\net10.0\Serilog.Sinks.File.dll

@@ -1,4 +1,4 @@
-// src/components/ProductForm.tsx
+// inventory-management-ui/src/components/ProductForm.tsx
 
 import React, { useEffect, useState } from "react";
 import type { Product } from "../types/Product";
@@ -128,78 +128,98 @@ const ProductForm: React.FC<ProductFormProps> = ({
   };
 
   return (
-    <div className="my-5 rounded-lg bg-gray-100 p-6 text-black shadow-inner">
-      <h2 className="mb-4 text-xl font-black text-gray-800">
-        {productToEdit ? "Editar Produto" : "Adicionar Novo Produto"}
-      </h2>
-
-      {errors.form && (
-        <p className="mb-4 text-sm font-bold text-red-600">{errors.form}</p>
-      )}
-
-      <form
-        onSubmit={handleSubmit}
-        noValidate
-        className="grid grid-cols-2 gap-4"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      onClick={onCancel}
+    >
+      <div
+        className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-indigo-50 p-8 shadow-2xl transition-all"
+        onClick={(e) => e.stopPropagation()}
       >
-        <FormField
-          label="Nome"
-          name="name"
-          className="col-span-full"
-          value={formData.name}
-          onChange={handleChange}
-          error={errors.name}
-          placeholder="Ex.: Teclado Mecânico"
-        />
-
-        <FormField
-          label="Descrição"
-          name="description"
-          className="col-span-full"
-          value={formData.description}
-          onChange={handleChange}
-        />
-
-        <FormField
-          label="Preço"
-          name="price"
-          type="text"
-          prefix="R$"
-          value={new Intl.NumberFormat("pt-BR", {
-            minimumFractionDigits: 2,
-          }).format(formData.price)}
-          onChange={handleChange}
-          error={errors.price}
-        />
-
-        <FormField
-          label="Quantidade"
-          name="quantity"
-          type="number"
-          value={formData.quantity}
-          onChange={handleChange}
-          error={errors.quantity}
-        />
-
-        <div className="col-span-full mt-4 flex justify-center gap-4 pt-4">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-left text-2xl font-black text-slate-800">
+            {productToEdit ? "Editar Produto" : "Adicionar Novo Produto"}
+          </h2>
           <button
-            type="submit"
-            title="Salvar"
-            className="transition-transform hover:scale-110"
-          >
-            <SaveImg />
-          </button>
-
-          <button
-            type="button"
             onClick={onCancel}
-            title="Cancelar"
-            className="transition-transform hover:scale-110"
+            className="text-slate-400 hover:text-slate-600"
           >
-            <CancelImg />
+            ✕
           </button>
         </div>
-      </form>
+
+        {errors.form && (
+          <p className="mb-4 text-sm font-bold text-red-900">{errors.form}</p>
+        )}
+
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="grid grid-cols-2 gap-6"
+        >
+          <FormField
+            label="Nome"
+            name="name"
+            className="col-span-full"
+            value={formData.name}
+            onChange={handleChange}
+            error={errors.name}
+          />
+
+          <FormField
+            label="Descrição"
+            name="description"
+            className="col-span-full"
+            value={formData.description}
+            onChange={handleChange}
+          />
+
+          <FormField
+            label="Preço"
+            name="price"
+            type="text"
+            value={new Intl.NumberFormat("pt-BR", {
+              minimumFractionDigits: 2,
+            }).format(formData.price)}
+            onChange={handleChange}
+            error={errors.price}
+          />
+
+          <FormField
+            label="Quantidade"
+            name="quantity"
+            type="number"
+            value={formData.quantity}
+            onChange={handleChange}
+            error={errors.quantity}
+          />
+
+          <div className="col-span-full mt-6 flex justify-center gap-6 pt-6">
+            <button
+              type="submit"
+              title="Salvar"
+              className="flex items-center gap-2 rounded-lg bg-indigo-900 px-6 py-2 font-bold text-slate-50 shadow-md shadow-indigo-800 transition-all hover:scale-105 hover:bg-indigo-800"
+            >
+              <div className="size-6 fill-slate-50">
+                <SaveImg />
+              </div>
+              Salvar
+            </button>
+
+            <button
+              type="button"
+              onClick={onCancel}
+              title="Cancelar"
+              className="flex items-center gap-2 rounded-lg px-4 py-2 font-semibold text-slate-500 transition-colors hover:bg-slate-200"
+            >
+              <div className="size-6 fill-slate-500">
+                <CancelImg />
+              </div>
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
