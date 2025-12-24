@@ -76,29 +76,18 @@ namespace InventoryManagementApi.Controllers
         {
             if (id != product.Id)
             {
-                return BadRequest(
-                    new { message = "The ID provided does not match the product ID." }
-                );
+                return BadRequest("IDs do not match.");
             }
-
-            var existingProduct = await _repository.GetByIdAsync(id);
-            if (existingProduct == null)
-            {
-                return NotFound();
-            }
-
-            await _repository.UpdateAsync(product);
 
             try
             {
-                await _repository.SaveChangesAsync();
+                await _repository.UpdateAsync(product);
+                return NoContent();
             }
             catch (Exception)
             {
-                return StatusCode(500, "Internal error updating the data.");
+                throw;
             }
-
-            return NoContent();
         }
 
         [HttpDelete("{id}")]

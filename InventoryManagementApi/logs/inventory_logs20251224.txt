@@ -1,0 +1,1012 @@
+2025-12-24 12:52:44.851 -03:00 [INF] Now listening on: http://localhost:5155
+2025-12-24 12:52:44.883 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-24 12:52:44.883 -03:00 [INF] Hosting environment: Development
+2025-12-24 12:52:44.884 -03:00 [INF] Content root path: C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi
+2025-12-24 12:52:54.578 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 12:52:54.728 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:52:54.736 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-24 12:52:54.749 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:52:54.818 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:52:55.247 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 12:52:57.724 -03:00 [INF] Executed DbCommand (140ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 12:52:58.000 -03:00 [INF] Executed DbCommand (73ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 12:52:58.121 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 12:52:58.203 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 12:52:58.206 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 3375.7451ms
+2025-12-24 12:52:58.215 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:52:58.224 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:52:58.225 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:52:58.233 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:52:58.238 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 12:52:58.245 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 3677.6483ms
+2025-12-24 12:52:58.288 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 12:52:58.305 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 12:52:58.311 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 12:52:58.316 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 79.1109ms
+2025-12-24 12:52:58.319 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:52:58.321 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 118.2932ms
+2025-12-24 12:53:29.033 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=2&pageSize=5 - null null
+2025-12-24 12:53:29.043 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:53:29.045 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:53:29.047 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:53:29.059 -03:00 [INF] Fetching page 2 with 5 items.
+2025-12-24 12:53:29.200 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 12:53:29.230 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p ROWS ONLY
+2025-12-24 12:53:29.234 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 12:53:29.237 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 186.3896ms
+2025-12-24 12:53:29.239 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:53:29.241 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=2&pageSize=5 - 200 null application/json; charset=utf-8 207.9763ms
+2025-12-24 12:53:30.688 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 12:53:30.695 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:53:30.696 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:53:30.698 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:53:30.701 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 12:53:30.707 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 12:53:30.715 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 12:53:30.719 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 12:53:30.721 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 20.1664ms
+2025-12-24 12:53:30.723 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:53:30.725 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 37.2422ms
+2025-12-24 12:53:36.697 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/16 - null null
+2025-12-24 12:53:36.705 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:53:36.709 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/16 - 204 null null 11.875ms
+2025-12-24 12:53:36.716 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/16 - null null
+2025-12-24 12:53:36.722 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:53:36.724 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 12:53:36.740 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:53:36.748 -03:00 [INF] Trying to delete product ID: 16
+2025-12-24 12:53:36.820 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 12:53:37.079 -03:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 12:53:37.103 -03:00 [INF] Product 16 successfully deleted.
+2025-12-24 12:53:37.114 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 12:53:37.117 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 371.9469ms
+2025-12-24 12:53:37.119 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 12:53:37.122 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/16 - 204 null null 405.4875ms
+2025-12-24 12:53:37.128 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 12:53:37.136 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:53:37.137 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:53:37.139 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:53:37.142 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 12:53:37.158 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 12:53:37.163 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 12:53:37.166 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 12:53:37.169 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 27.0687ms
+2025-12-24 12:53:37.171 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:53:37.174 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 46.5104ms
+2025-12-24 12:53:44.606 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - null null
+2025-12-24 12:53:44.614 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:53:44.617 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - 204 null null 11.1251ms
+2025-12-24 12:53:44.625 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5155/api/Products/17 - application/json 86
+2025-12-24 12:53:44.630 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:53:44.631 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 12:53:44.643 -03:00 [INF] Route matched with {action = "PutProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutProduct(Int32, InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:53:44.707 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 12:53:44.738 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi) in 91.5467ms
+2025-12-24 12:53:44.745 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 12:53:44.748 -03:00 [ERR] There was an untreated exception: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+System.InvalidOperationException: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.OnStateChanging(EntityState newState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntryBase.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.set_State(EntityState value)
+   at InventoryManagementApi.Data.Repositories.ProductRepository.UpdateAsync(Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Data\Repositories\ProductRepository.cs:line 42
+   at InventoryManagementApi.Controllers.ProductsController.PutProduct(Int32 id, Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Controllers\ProductsController.cs:line 90
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at InventoryManagementApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Middleware\ExceptionMiddleware.cs:line 23
+2025-12-24 12:53:44.833 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5155/api/Products/17 - 500 null application/json 207.8016ms
+2025-12-24 12:54:05.439 -03:00 [INF] Application is shutting down...
+2025-12-24 12:54:10.783 -03:00 [INF] Now listening on: http://localhost:5155
+2025-12-24 12:54:10.825 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-24 12:54:10.827 -03:00 [INF] Hosting environment: Development
+2025-12-24 12:54:10.827 -03:00 [INF] Content root path: C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi
+2025-12-24 12:54:17.425 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - null null
+2025-12-24 12:54:17.466 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:54:17.472 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - 204 null null 48.4391ms
+2025-12-24 12:54:17.490 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5155/api/Products/17 - application/json 86
+2025-12-24 12:54:17.496 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:54:17.497 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-24 12:54:17.501 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 12:54:17.520 -03:00 [INF] Route matched with {action = "PutProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutProduct(Int32, InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:54:18.223 -03:00 [INF] Executed DbCommand (35ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 12:54:18.286 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi) in 761.7856ms
+2025-12-24 12:54:18.287 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 12:54:18.289 -03:00 [ERR] There was an untreated exception: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+System.InvalidOperationException: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.OnStateChanging(EntityState newState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntryBase.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.set_State(EntityState value)
+   at InventoryManagementApi.Data.Repositories.ProductRepository.UpdateAsync(Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Data\Repositories\ProductRepository.cs:line 42
+   at InventoryManagementApi.Controllers.ProductsController.PutProduct(Int32 id, Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Controllers\ProductsController.cs:line 90
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at InventoryManagementApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Middleware\ExceptionMiddleware.cs:line 23
+2025-12-24 12:54:18.312 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5155/api/Products/17 - 500 null application/json 822.4783ms
+2025-12-24 12:57:28.671 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 12:57:28.687 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:57:28.690 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:57:28.705 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:57:28.714 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 12:57:28.785 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 12:57:28.811 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 12:57:28.819 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 12:57:28.834 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 126.6163ms
+2025-12-24 12:57:28.834 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 12:57:28.835 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:57:28.839 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:57:28.840 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 168.2725ms
+2025-12-24 12:57:28.840 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:57:28.845 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:57:28.852 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 12:57:28.927 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 12:57:28.933 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 12:57:28.938 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 12:57:28.942 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 94.5765ms
+2025-12-24 12:57:28.944 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 12:57:28.946 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 111.7773ms
+2025-12-24 12:57:31.508 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - null null
+2025-12-24 12:57:31.515 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:57:31.517 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - 204 null null 8.3474ms
+2025-12-24 12:57:31.522 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5155/api/Products/17 - application/json 83
+2025-12-24 12:57:31.526 -03:00 [INF] CORS policy execution successful.
+2025-12-24 12:57:31.527 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 12:57:31.528 -03:00 [INF] Route matched with {action = "PutProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutProduct(Int32, InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 12:57:31.541 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 12:57:31.545 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi) in 14.6922ms
+2025-12-24 12:57:31.546 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 12:57:31.548 -03:00 [ERR] There was an untreated exception: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+System.InvalidOperationException: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.OnStateChanging(EntityState newState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntryBase.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.set_State(EntityState value)
+   at InventoryManagementApi.Data.Repositories.ProductRepository.UpdateAsync(Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Data\Repositories\ProductRepository.cs:line 42
+   at InventoryManagementApi.Controllers.ProductsController.PutProduct(Int32 id, Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Controllers\ProductsController.cs:line 90
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at InventoryManagementApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Middleware\ExceptionMiddleware.cs:line 23
+2025-12-24 12:57:31.555 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5155/api/Products/17 - 500 null application/json 33.2584ms
+2025-12-24 13:00:01.287 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:01.288 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:01.299 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:01.303 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:01.304 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:01.305 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:01.306 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:01.308 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:01.311 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:01.313 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:01.329 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:01.329 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:01.335 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:01.335 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:01.338 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:01.339 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:01.340 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 29.7761ms
+2025-12-24 13:00:01.342 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 29.3449ms
+2025-12-24 13:00:01.343 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:01.344 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:01.345 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 57.9946ms
+2025-12-24 13:00:01.347 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 58.3244ms
+2025-12-24 13:00:04.508 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - null null
+2025-12-24 13:00:04.516 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:04.518 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - 204 null null 10.0724ms
+2025-12-24 13:00:04.521 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5155/api/Products/17 - application/json 83
+2025-12-24 13:00:04.524 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:04.525 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:00:04.527 -03:00 [INF] Route matched with {action = "PutProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutProduct(Int32, InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:04.538 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:00:04.540 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi) in 10.7893ms
+2025-12-24 13:00:04.542 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:00:04.543 -03:00 [ERR] There was an untreated exception: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+System.InvalidOperationException: The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.OnStateChanging(EntityState newState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntryBase.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.set_State(EntityState value)
+   at InventoryManagementApi.Data.Repositories.ProductRepository.UpdateAsync(Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Data\Repositories\ProductRepository.cs:line 42
+   at InventoryManagementApi.Controllers.ProductsController.PutProduct(Int32 id, Product product) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Controllers\ProductsController.cs:line 90
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at InventoryManagementApi.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi\Middleware\ExceptionMiddleware.cs:line 23
+2025-12-24 13:00:04.551 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5155/api/Products/17 - 500 null application/json 30.4052ms
+2025-12-24 13:00:08.072 -03:00 [INF] Application is shutting down...
+2025-12-24 13:00:12.583 -03:00 [INF] Now listening on: http://localhost:5155
+2025-12-24 13:00:12.618 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-24 13:00:12.620 -03:00 [INF] Hosting environment: Development
+2025-12-24 13:00:12.621 -03:00 [INF] Content root path: C:\Users\afase\source\repos\InventoryManagementApi\InventoryManagementApi
+2025-12-24 13:00:22.406 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:22.439 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:22.441 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-24 13:00:22.445 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:22.458 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:22.521 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:23.182 -03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:23.246 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:23.277 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:23.298 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:23.298 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 836.5651ms
+2025-12-24 13:00:23.301 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:23.302 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:23.302 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:23.304 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:23.306 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:23.308 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 904.1279ms
+2025-12-24 13:00:23.322 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:23.327 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:23.330 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:23.332 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 26.5962ms
+2025-12-24 13:00:23.333 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:23.334 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 36.261ms
+2025-12-24 13:00:31.045 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products - null null
+2025-12-24 13:00:31.053 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:31.056 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products - 204 null null 10.7546ms
+2025-12-24 13:00:31.062 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Products - application/json 65
+2025-12-24 13:00:31.068 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:31.069 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi)'
+2025-12-24 13:00:31.076 -03:00 [INF] Route matched with {action = "PostProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.Product]] PostProduct(InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:31.360 -03:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CreatedDate], [Description], [Name], [Price], [Quantity])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-12-24 13:00:31.403 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'InventoryManagementApi.Models.Product'.
+2025-12-24 13:00:31.424 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi) in 346.9701ms
+2025-12-24 13:00:31.429 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi)'
+2025-12-24 13:00:31.431 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Products - 201 null application/json; charset=utf-8 369.5995ms
+2025-12-24 13:00:31.436 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:31.439 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:31.440 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:31.442 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:31.446 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:31.464 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:31.477 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:31.481 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:31.483 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 37.7575ms
+2025-12-24 13:00:31.484 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:31.486 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 50.4979ms
+2025-12-24 13:00:34.359 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=2&pageSize=5 - null null
+2025-12-24 13:00:34.364 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:34.366 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:34.368 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:34.374 -03:00 [INF] Fetching page 2 with 5 items.
+2025-12-24 13:00:34.391 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:34.410 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p ROWS ONLY
+2025-12-24 13:00:34.415 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:34.416 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 44.009ms
+2025-12-24 13:00:34.418 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:34.419 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=2&pageSize=5 - 200 null application/json; charset=utf-8 59.9219ms
+2025-12-24 13:00:35.503 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:35.513 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:35.516 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:35.518 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:35.524 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:35.530 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:35.537 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:35.540 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:35.542 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 18.2309ms
+2025-12-24 13:00:35.543 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:35.544 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 41.3884ms
+2025-12-24 13:00:38.264 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - null null
+2025-12-24 13:00:38.269 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:38.270 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - 204 null null 6.6775ms
+2025-12-24 13:00:38.274 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5155/api/Products/17 - application/json 83
+2025-12-24 13:00:38.277 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:38.278 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:00:38.287 -03:00 [INF] Route matched with {action = "PutProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutProduct(Int32, InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:38.315 -03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [CreatedDate] = @p0, [Description] = @p1, [Name] = @p2, [Price] = @p3, [Quantity] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-12-24 13:00:38.326 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:00:38.328 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi) in 39.6834ms
+2025-12-24 13:00:38.330 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:00:38.331 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5155/api/Products/17 - 204 null null 56.795ms
+2025-12-24 13:00:38.335 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:38.339 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:38.340 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:38.341 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:38.344 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:38.347 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:38.351 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:38.354 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:38.356 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 12.1779ms
+2025-12-24 13:00:38.358 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:38.359 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 23.7525ms
+2025-12-24 13:00:48.554 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - null null
+2025-12-24 13:00:48.561 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:48.562 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/17 - 204 null null 8.7559ms
+2025-12-24 13:00:48.566 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/17 - null null
+2025-12-24 13:00:48.568 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:48.569 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:48.576 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:48.580 -03:00 [INF] Trying to delete product ID: 17
+2025-12-24 13:00:48.618 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:00:48.636 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 13:00:48.644 -03:00 [INF] Product 17 successfully deleted.
+2025-12-24 13:00:48.647 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:00:48.649 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 70.3266ms
+2025-12-24 13:00:48.650 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:48.651 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/17 - 204 null null 85.2345ms
+2025-12-24 13:00:48.656 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:48.661 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:48.662 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:48.663 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:48.665 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:48.668 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:48.672 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:48.674 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:48.677 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 12.3409ms
+2025-12-24 13:00:48.678 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:48.680 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 23.5786ms
+2025-12-24 13:00:50.473 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/6 - null null
+2025-12-24 13:00:50.477 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:50.478 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/6 - 204 null null 5.503ms
+2025-12-24 13:00:50.483 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/6 - null null
+2025-12-24 13:00:50.485 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:50.486 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:50.487 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:50.489 -03:00 [INF] Trying to delete product ID: 6
+2025-12-24 13:00:50.493 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:00:50.500 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 13:00:50.504 -03:00 [INF] Product 6 successfully deleted.
+2025-12-24 13:00:50.505 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:00:50.505 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 16.3205ms
+2025-12-24 13:00:50.506 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:50.507 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/6 - 204 null null 23.8299ms
+2025-12-24 13:00:50.511 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:50.516 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:50.517 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:50.519 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:50.522 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:50.525 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:50.530 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:50.533 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:50.537 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 15.4342ms
+2025-12-24 13:00:50.540 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:50.542 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 30.6871ms
+2025-12-24 13:00:52.191 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/12 - null null
+2025-12-24 13:00:52.198 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:52.199 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/12 - 204 null null 8.2978ms
+2025-12-24 13:00:52.204 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/12 - null null
+2025-12-24 13:00:52.207 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:52.208 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:52.210 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:52.212 -03:00 [INF] Trying to delete product ID: 12
+2025-12-24 13:00:52.214 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:00:52.218 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 13:00:52.220 -03:00 [INF] Product 12 successfully deleted.
+2025-12-24 13:00:52.221 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:00:52.222 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 10.4574ms
+2025-12-24 13:00:52.223 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:52.224 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/12 - 204 null null 20.7275ms
+2025-12-24 13:00:52.230 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:52.232 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:52.233 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:52.235 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:52.239 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:52.242 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:52.245 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:52.247 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:52.249 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 9.7106ms
+2025-12-24 13:00:52.250 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:52.251 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 21.602ms
+2025-12-24 13:00:53.670 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/13 - null null
+2025-12-24 13:00:53.677 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:53.679 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/13 - 204 null null 8.6893ms
+2025-12-24 13:00:53.686 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/13 - null null
+2025-12-24 13:00:53.690 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:53.691 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:53.693 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:53.695 -03:00 [INF] Trying to delete product ID: 13
+2025-12-24 13:00:53.698 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:00:53.703 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 13:00:53.705 -03:00 [INF] Product 13 successfully deleted.
+2025-12-24 13:00:53.706 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:00:53.707 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 11.81ms
+2025-12-24 13:00:53.708 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:53.710 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/13 - 204 null null 23.8396ms
+2025-12-24 13:00:53.713 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:53.716 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:53.716 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:53.717 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:53.719 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:53.722 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:53.725 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:53.727 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:53.729 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 10.0117ms
+2025-12-24 13:00:53.730 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:53.731 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 18.1041ms
+2025-12-24 13:00:55.171 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/20 - null null
+2025-12-24 13:00:55.179 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:55.181 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/20 - 204 null null 9.517ms
+2025-12-24 13:00:55.186 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/20 - null null
+2025-12-24 13:00:55.189 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:55.192 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:55.194 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:55.198 -03:00 [INF] Trying to delete product ID: 20
+2025-12-24 13:00:55.200 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:00:55.205 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 13:00:55.208 -03:00 [INF] Product 20 successfully deleted.
+2025-12-24 13:00:55.209 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:00:55.210 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 12.7748ms
+2025-12-24 13:00:55.211 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:55.213 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/20 - 204 null null 26.7568ms
+2025-12-24 13:00:55.216 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:55.220 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:55.221 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:55.222 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:55.224 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:55.227 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:55.234 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:55.236 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:55.238 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 14.164ms
+2025-12-24 13:00:55.239 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:55.240 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 23.8817ms
+2025-12-24 13:00:56.431 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/21 - null null
+2025-12-24 13:00:56.439 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:56.441 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/21 - 204 null null 10.0774ms
+2025-12-24 13:00:56.446 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/21 - null null
+2025-12-24 13:00:56.450 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:56.451 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:56.452 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:56.455 -03:00 [INF] Trying to delete product ID: 21
+2025-12-24 13:00:56.457 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:00:56.462 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 13:00:56.464 -03:00 [INF] Product 21 successfully deleted.
+2025-12-24 13:00:56.465 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:00:56.466 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 11.7928ms
+2025-12-24 13:00:56.467 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:00:56.468 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/21 - 204 null null 22.107ms
+2025-12-24 13:00:56.472 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:00:56.475 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:00:56.475 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:56.476 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:00:56.478 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:00:56.481 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:00:56.484 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:00:56.486 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:00:56.487 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 9.3988ms
+2025-12-24 13:00:56.489 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:00:56.490 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 17.9159ms
+2025-12-24 13:01:54.047 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:01:54.053 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:01:54.054 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:01:54.057 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:01:54.061 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:01:54.076 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:01:54.086 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:01:54.091 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:01:54.094 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 32.9892ms
+2025-12-24 13:01:54.096 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:01:54.096 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:01:54.101 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:01:54.104 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 56.9969ms
+2025-12-24 13:01:54.106 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:01:54.114 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:01:54.118 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:01:54.121 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:01:54.125 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:01:54.129 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:01:54.132 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 14.0364ms
+2025-12-24 13:01:54.134 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:01:54.135 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 39.4206ms
+2025-12-24 13:03:22.685 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products - null null
+2025-12-24 13:03:22.687 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:22.688 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products - 204 null null 3.4579ms
+2025-12-24 13:03:22.696 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Products - application/json 68
+2025-12-24 13:03:22.698 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:22.699 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi)'
+2025-12-24 13:03:22.700 -03:00 [INF] Route matched with {action = "PostProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.Product]] PostProduct(InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:22.726 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CreatedDate], [Description], [Name], [Price], [Quantity])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-12-24 13:03:22.731 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'InventoryManagementApi.Models.Product'.
+2025-12-24 13:03:22.734 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi) in 29.1688ms
+2025-12-24 13:03:22.736 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi)'
+2025-12-24 13:03:22.737 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Products - 201 null application/json; charset=utf-8 41.0761ms
+2025-12-24 13:03:22.740 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:03:22.743 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:22.744 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:22.746 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:22.748 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:03:22.751 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:03:22.757 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:03:22.760 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:03:22.761 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 14.1942ms
+2025-12-24 13:03:22.764 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:22.766 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 25.4023ms
+2025-12-24 13:03:29.953 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/22 - null null
+2025-12-24 13:03:29.957 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:29.961 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/22 - 204 null null 7.1524ms
+2025-12-24 13:03:29.969 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5155/api/Products/22 - application/json 83
+2025-12-24 13:03:29.972 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:29.974 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:03:29.976 -03:00 [INF] Route matched with {action = "PutProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutProduct(Int32, InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:29.992 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [CreatedDate] = @p0, [Description] = @p1, [Name] = @p2, [Price] = @p3, [Quantity] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-12-24 13:03:29.998 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:03:30.000 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi) in 22.0127ms
+2025-12-24 13:03:30.002 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:03:30.004 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5155/api/Products/22 - 204 null null 35.4779ms
+2025-12-24 13:03:30.009 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:03:30.014 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:30.015 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:30.016 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:30.018 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:03:30.023 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:03:30.032 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:03:30.035 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:03:30.037 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 19.055ms
+2025-12-24 13:03:30.039 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:30.040 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 31.3075ms
+2025-12-24 13:03:38.268 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/22 - null null
+2025-12-24 13:03:38.270 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:38.270 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/22 - 204 null null 2.8248ms
+2025-12-24 13:03:38.273 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Products/22 - null null
+2025-12-24 13:03:38.276 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:38.277 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:03:38.278 -03:00 [INF] Route matched with {action = "DeleteProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProduct(Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:38.280 -03:00 [INF] Trying to delete product ID: 22
+2025-12-24 13:03:38.293 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @p
+2025-12-24 13:03:38.302 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-12-24 13:03:38.304 -03:00 [INF] Product 22 successfully deleted.
+2025-12-24 13:03:38.305 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:03:38.306 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi) in 25.8469ms
+2025-12-24 13:03:38.307 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.DeleteProduct (InventoryManagementApi)'
+2025-12-24 13:03:38.308 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Products/22 - 204 null null 34.6571ms
+2025-12-24 13:03:38.311 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:03:38.314 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:38.314 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:38.315 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:38.317 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:03:38.321 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:03:38.327 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:03:38.329 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:03:38.330 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 13.1302ms
+2025-12-24 13:03:38.331 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:38.332 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 20.909ms
+2025-12-24 13:03:58.140 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products - null null
+2025-12-24 13:03:58.148 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:58.149 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products - 204 null null 8.9987ms
+2025-12-24 13:03:58.153 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Products - application/json 81
+2025-12-24 13:03:58.157 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:58.159 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi)'
+2025-12-24 13:03:58.161 -03:00 [INF] Route matched with {action = "PostProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.Product]] PostProduct(InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:58.177 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([CreatedDate], [Description], [Name], [Price], [Quantity])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-12-24 13:03:58.181 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'InventoryManagementApi.Models.Product'.
+2025-12-24 13:03:58.185 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi) in 22.6333ms
+2025-12-24 13:03:58.187 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PostProduct (InventoryManagementApi)'
+2025-12-24 13:03:58.190 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Products - 201 null application/json; charset=utf-8 37.6221ms
+2025-12-24 13:03:58.195 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:03:58.199 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:03:58.200 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:58.201 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:03:58.203 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:03:58.205 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:03:58.212 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:03:58.215 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:03:58.216 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 13.9529ms
+2025-12-24 13:03:58.217 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:03:58.218 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 23.0551ms
+2025-12-24 13:06:28.163 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/Products/23 - null null
+2025-12-24 13:06:28.166 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:06:28.166 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/Products/23 - 204 null null 3.6163ms
+2025-12-24 13:06:28.172 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5155/api/Products/23 - application/json 89
+2025-12-24 13:06:28.174 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:06:28.175 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:06:28.176 -03:00 [INF] Route matched with {action = "PutProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutProduct(Int32, InventoryManagementApi.Models.Product) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:06:28.195 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [CreatedDate] = @p0, [Description] = @p1, [Name] = @p2, [Price] = @p3, [Quantity] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-12-24 13:06:28.198 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-12-24 13:06:28.199 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi) in 21.5234ms
+2025-12-24 13:06:28.200 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.PutProduct (InventoryManagementApi)'
+2025-12-24 13:06:28.201 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5155/api/Products/23 - 204 null null 29.4069ms
+2025-12-24 13:06:28.205 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:06:28.207 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:06:28.208 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:06:28.209 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:06:28.211 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:06:28.216 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:06:28.222 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:06:28.224 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:06:28.225 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 14.6011ms
+2025-12-24 13:06:28.227 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:06:28.227 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 22.7136ms
+2025-12-24 13:16:18.218 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:16:18.225 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:16:18.227 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:16:18.230 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:16:18.235 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:16:18.396 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:16:18.406 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:16:18.411 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:16:18.414 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 179.9072ms
+2025-12-24 13:16:18.416 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:16:18.417 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:16:18.420 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:16:18.421 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 202.6922ms
+2025-12-24 13:16:18.422 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:16:18.425 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:16:18.428 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:16:18.430 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:16:18.433 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:16:18.436 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:16:18.438 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 10.5668ms
+2025-12-24 13:16:18.440 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:16:18.441 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 24.8626ms
+2025-12-24 13:20:04.163 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:20:04.166 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:20:04.168 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:20:04.169 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:20:04.172 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:20:04.193 -03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:20:04.201 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:20:04.205 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:20:04.206 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 34.8939ms
+2025-12-24 13:20:04.208 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - null null
+2025-12-24 13:20:04.208 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:20:04.211 -03:00 [INF] CORS policy execution successful.
+2025-12-24 13:20:04.212 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 48.761ms
+2025-12-24 13:20:04.212 -03:00 [INF] Executing endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:20:04.218 -03:00 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InventoryManagementApi.Models.PagedResponse`1[InventoryManagementApi.Models.Product]]] GetProducts(Int32, Int32) on controller InventoryManagementApi.Controllers.ProductsController (InventoryManagementApi).
+2025-12-24 13:20:04.220 -03:00 [INF] Fetching page 1 with 5 items.
+2025-12-24 13:20:04.226 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-12-24 13:20:04.231 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedDate], [p].[Description], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+ORDER BY [p].[Name]
+OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY
+2025-12-24 13:20:04.234 -03:00 [INF] Executing OkObjectResult, writing value of type 'InventoryManagementApi.Models.PagedResponse`1[[InventoryManagementApi.Models.Product, InventoryManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-24 13:20:04.235 -03:00 [INF] Executed action InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi) in 15.286ms
+2025-12-24 13:20:04.237 -03:00 [INF] Executed endpoint 'InventoryManagementApi.Controllers.ProductsController.GetProducts (InventoryManagementApi)'
+2025-12-24 13:20:04.239 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Products?pageNumber=1&pageSize=5 - 200 null application/json; charset=utf-8 31.6998ms
+2025-12-24 18:08:21.282 -03:00 [INF] Application is shutting down...

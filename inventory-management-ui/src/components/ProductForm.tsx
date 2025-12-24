@@ -143,23 +143,23 @@ const ProductForm: React.FC<ProductFormProps> = ({
       onClick={onCancel}
     >
       <div
-        className="dark:bg-card-dark bg-brand-light w-full max-w-2xl transform overflow-hidden rounded-2xl p-8 shadow-2xl transition-all"
+        className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-brand-light p-8 shadow-2xl transition-all dark:bg-card-dark"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-6 flex flex-col items-center md:flex-row md:justify-between">
-          <h2 className="text-card-dark dark:text-surface-light text-left text-2xl font-black">
+          <h2 className="text-left text-2xl font-black text-card-dark dark:text-surface-light">
             {productToEdit ? "Editar Produto" : "Adicionar Novo Produto"}
           </h2>
           <button
             onClick={onCancel}
-            className="dark:hover:text-surface-light order-first self-end font-black text-slate-400 hover:text-slate-600 md:order-2 md:self-center dark:text-slate-300"
+            className="order-first self-end font-black text-slate-400 hover:text-slate-600 dark:text-slate-300 dark:hover:text-surface-light md:order-2 md:self-center"
           >
             ✕
           </button>
         </div>
 
         {errors.form && (
-          <p className="text-error-dark mb-4 text-sm font-bold">
+          <p className="mb-4 text-sm font-bold text-error-dark">
             {errors.form}
           </p>
         )}
@@ -212,7 +212,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
             <button
               type="submit"
               title="Salvar"
-              className="bg-brand-darker shadow-brand-dark text-surface-light hover:bg-brand-dark dark:bg-brand-dark dark:shadow-brand-darker flex items-center justify-center gap-2 rounded-lg px-6 py-2 font-bold shadow-md transition-all hover:scale-105"
+              className="flex items-center justify-center gap-2 rounded-lg bg-brand-dark px-6 py-2 font-bold text-surface-light shadow-md shadow-brand-dark transition-all hover:scale-105 hover:bg-brand-dark dark:bg-brand-dark dark:shadow-brand-darker"
             >
               <div className="size-6 fill-slate-50">
                 <SaveImg />
@@ -224,7 +224,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
               type="button"
               onClick={onCancel}
               title="Cancelar"
-              className="dark:hover:bg-slate-60 hover:bg-card-light flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold text-slate-500 transition-colors dark:text-slate-400 dark:hover:bg-slate-700"
+              className="dark:hover:bg-slate-60 flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold text-slate-500 transition-colors hover:bg-card-light dark:text-slate-400 dark:hover:bg-slate-700"
             >
               <div className="size-6 fill-slate-400">
                 <CancelImg />

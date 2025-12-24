@@ -27,7 +27,7 @@ const FormField: React.FC<FormFieldProps> = ({
     <div className={className}>
       <label
         htmlFor={name}
-        className="text-card-dark dark:text-card-light mb-1 block text-sm font-bold"
+        className="mb-1 block text-sm font-bold text-card-dark dark:text-card-light"
       >
         {label}
       </label>
@@ -40,15 +40,16 @@ const FormField: React.FC<FormFieldProps> = ({
         placeholder={placeholder}
         className={`w-full rounded border p-2 outline-none transition-all dark:bg-slate-600 ${
           error
-            ? "0 border-error-primary focus:ring-2 focus:ring-red-200"
-            : "dark:border-card-dark focus:border-brand-primary border-slate-300 focus:ring-2 focus:ring-indigo-200"
+            ? "border-error-primary focus:ring-2 focus:ring-red-200"
+            : "border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-indigo-200 dark:border-card-dark"
         }`}
       />
-      {error && (
-        <span className="text-error-primary mt-1 block text-xs font-bold">
-          {error}
-        </span>
-      )}
+      <p
+        className="min-h-[20px] text-xs font-bold text-error-primary transition-all"
+        aria-live="polite"
+      >
+        {error ? error : " "}
+      </p>
     </div>
   );
 };

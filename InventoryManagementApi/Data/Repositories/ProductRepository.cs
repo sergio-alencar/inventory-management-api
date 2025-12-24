@@ -38,8 +38,11 @@ public class ProductRepository : IProductRepository
 
     public async Task AddAsync(Product product) => await _context.Products.AddAsync(product);
 
-    public async Task UpdateAsync(Product product) =>
-        _context.Entry(product).State = EntityState.Modified;
+    public async Task UpdateAsync(Product product)
+    {
+        _context.Products.Update(product);
+        await _context.SaveChangesAsync();
+    }
 
     public async Task DeleteAsync(int id)
     {
