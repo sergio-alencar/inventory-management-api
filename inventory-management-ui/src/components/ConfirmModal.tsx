@@ -1,6 +1,8 @@
 // src/components/ConfirmModal.tsx
 
 import React, { useEffect } from "react";
+import { DeleteImg } from "./images/DeleteImg";
+import { CancelImg } from "./images/CancelImg";
 
 interface ConfirmModalProps {
   isOpen: boolean;
@@ -35,28 +37,36 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
       onClick={onCancel}
     >
       <div
-        className="w-full max-w-md transform overflow-hidden rounded-2xl bg-slate-50 p-6 text-left align-middle shadow-xl transition-all"
+        className="bg-surface-light dark:bg-card-dark w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-center align-middle shadow-xl transition-all md:text-left"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="mb-2 text-lg font-bold leading-6 text-slate-900">
+        <h3 className="text-surface-dark dark:text-surface-light mb-2 text-lg font-bold leading-6">
           {title}
         </h3>
-        <p className="mb-6 text-sm text-slate-500">{message}</p>
+        <p className="dark:text-card-light text-card-dark mb-6 text-sm">
+          {message}
+        </p>
 
-        <div className="flex justify-end gap-3">
+        <div className="flex flex-col items-center gap-3 md:flex-row md:justify-end">
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-lg bg-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-b-slate-300"
+            className="flex min-w-full items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm font-semibold text-slate-500 transition hover:scale-105 md:min-w-fit dark:text-slate-400"
           >
+            <div className="dark:fill-slate4200 size-6 fill-slate-400">
+              <CancelImg />
+            </div>
             Cancelar
           </button>
 
           <button
             type="button"
             onClick={onConfirm}
-            className="rounded-lg bg-red-700 px-4 py-2 text-sm font-semibold text-slate-50 shadow-md shadow-red-200 transition hover:bg-red-800"
+            className="text-surface-light flex min-w-full items-center justify-center gap-1 text-nowrap rounded-lg bg-red-800 px-3 py-2 text-sm font-semibold shadow shadow-red-200 transition hover:scale-105 md:min-w-fit dark:shadow-red-950"
           >
+            <div className="fill-surface-light size-6">
+              <DeleteImg />
+            </div>
             Sim, Excluir
           </button>
         </div>

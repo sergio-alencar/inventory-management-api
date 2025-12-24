@@ -11,8 +11,10 @@ import { deleteProduct, fetchProducts } from "./api";
 import ConfirmModal from "./components/ConfirmModal";
 import ErrorModal from "./components/ErrorModal";
 import Pagination from "./components/Pagination";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import ThemeToggle from "./components/ThemeToggle";
 
-function App() {
+const AppContent = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -96,10 +98,13 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col justify-between bg-slate-100">
+    <div className="bg-surface-light text-surface-dark dark:bg-surface-dark dark:text-surface-light flex min-h-screen flex-col justify-between transition-colors duration-300">
       <div>
+        <div className="absolute right-4 top-4 z-50 md:right-8 md:top-6">
+          <ThemeToggle />
+        </div>
         <Header />
-        <div className="mx-auto flex max-w-4xl flex-col p-8">
+        <div className="mx-auto flex max-w-4xl flex-col p-4">
           <ProductList
             products={products}
             loading={loading}
@@ -147,6 +152,14 @@ function App() {
       </div>
       <Footer />
     </div>
+  );
+};
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

@@ -19,19 +19,19 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(current - 1)}
         disabled={current === 1}
-        className="size-6 rotate-180 fill-indigo-950 transition hover:scale-110 disabled:opacity-30 disabled:hover:scale-100"
+        className="dark:fill-brand-light fill-brand-dark size-6 rotate-180 transition hover:scale-125 disabled:opacity-30 disabled:hover:scale-100"
       >
         <ChevronImg />
       </button>
 
-      <span className="select-none font-bold text-indigo-500">
+      <span className="text-brand-primary select-none font-bold">
         {current} / {total}
       </span>
 
       <button
         onClick={() => onPageChange(current + 1)}
         disabled={current === total}
-        className="size-6 fill-indigo-950 transition hover:scale-110 disabled:opacity-30 disabled:hover:scale-100"
+        className="fill-brand-dark dark:fill-brand-light size-6 transition hover:scale-110 disabled:opacity-30 disabled:hover:scale-100"
       >
         <ChevronImg />
       </button>

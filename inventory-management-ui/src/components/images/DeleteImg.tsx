@@ -1,4 +1,4 @@
-// src/components/DeleteImg.tsx
+// inventory-management-ui/src/components/DeleteImg.tsx
 
 export const DeleteImg = () => {
   return (

@@ -127,35 +127,47 @@ const ProductForm: React.FC<ProductFormProps> = ({
     }
   };
 
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onCancel();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onCancel]);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
       onClick={onCancel}
     >
       <div
-        className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-indigo-50 p-8 shadow-2xl transition-all"
+        className="dark:bg-card-dark bg-brand-light w-full max-w-2xl transform overflow-hidden rounded-2xl p-8 shadow-2xl transition-all"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-left text-2xl font-black text-slate-800">
+        <div className="mb-6 flex flex-col items-center md:flex-row md:justify-between">
+          <h2 className="text-card-dark dark:text-surface-light text-left text-2xl font-black">
             {productToEdit ? "Editar Produto" : "Adicionar Novo Produto"}
           </h2>
           <button
             onClick={onCancel}
-            className="text-slate-400 hover:text-slate-600"
+            className="dark:hover:text-surface-light order-first self-end font-black text-slate-400 hover:text-slate-600 md:order-2 md:self-center dark:text-slate-300"
           >
             ✕
           </button>
         </div>
 
         {errors.form && (
-          <p className="mb-4 text-sm font-bold text-red-900">{errors.form}</p>
+          <p className="text-error-dark mb-4 text-sm font-bold">
+            {errors.form}
+          </p>
         )}
 
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="grid grid-cols-2 gap-6"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6"
         >
           <FormField
             label="Nome"
@@ -178,6 +190,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
             label="Preço"
             name="price"
             type="text"
+            className="col-span-1"
             value={new Intl.NumberFormat("pt-BR", {
               minimumFractionDigits: 2,
             }).format(formData.price)}
@@ -189,16 +202,17 @@ const ProductForm: React.FC<ProductFormProps> = ({
             label="Quantidade"
             name="quantity"
             type="number"
+            className="col-span-1"
             value={formData.quantity}
             onChange={handleChange}
             error={errors.quantity}
           />
 
-          <div className="col-span-full mt-6 flex justify-center gap-6 pt-6">
+          <div className="pt6 col-span-full mt-6 flex flex-col justify-end gap-3 sm:flex-row">
             <button
               type="submit"
               title="Salvar"
-              className="flex items-center gap-2 rounded-lg bg-indigo-900 px-6 py-2 font-bold text-slate-50 shadow-md shadow-indigo-800 transition-all hover:scale-105 hover:bg-indigo-800"
+              className="bg-brand-darker shadow-brand-dark text-surface-light hover:bg-brand-dark dark:bg-brand-dark dark:shadow-brand-darker flex items-center justify-center gap-2 rounded-lg px-6 py-2 font-bold shadow-md transition-all hover:scale-105"
             >
               <div className="size-6 fill-slate-50">
                 <SaveImg />
@@ -210,9 +224,9 @@ const ProductForm: React.FC<ProductFormProps> = ({
               type="button"
               onClick={onCancel}
               title="Cancelar"
-              className="flex items-center gap-2 rounded-lg px-4 py-2 font-semibold text-slate-500 transition-colors hover:bg-slate-200"
+              className="dark:hover:bg-slate-60 hover:bg-card-light flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold text-slate-500 transition-colors dark:text-slate-400 dark:hover:bg-slate-700"
             >
-              <div className="size-6 fill-slate-500">
+              <div className="size-6 fill-slate-400">
                 <CancelImg />
               </div>
               Cancelar

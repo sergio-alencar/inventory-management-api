@@ -1,4 +1,4 @@
-// src/components/SaveImg.tsx
+// inventory-management-ui/src/components/SaveImg.tsx
 
 export const SaveImg = () => {
   return (

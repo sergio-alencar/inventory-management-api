@@ -16,7 +16,7 @@ const AddProductButton: React.FC<AddProductButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="max-w-max self-end rounded-lg bg-indigo-950 px-4 py-2 text-xs font-semibold uppercase text-slate-50 shadow transition-colors hover:bg-indigo-900"
+      className="bg-brand-dark text-surface-light dark:bg-brand-primary min-w-full self-center whitespace-normal rounded-lg px-3 py-2 text-xs font-semibold uppercase shadow transition-all duration-150 hover:scale-105 md:min-w-fit md:max-w-max md:self-end md:text-sm"
     >
       Adicionar Produto
     </button>

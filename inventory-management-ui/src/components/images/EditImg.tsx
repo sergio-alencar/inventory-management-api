@@ -1,4 +1,4 @@
-// src/components/EditImg.tsx
+// inventory-management-ui/src/components/EditImg.tsx
 
 export const EditImg = () => {
   return (

@@ -1,4 +1,4 @@
-// src/components/CancelImg.tsx
+// inventory-management-ui/src/components/CancelImg.tsx
 
 export const CancelImg = () => {
   return (

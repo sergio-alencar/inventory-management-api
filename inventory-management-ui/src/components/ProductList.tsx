@@ -42,59 +42,113 @@ const ProductList: React.FC<ProductListProps> = ({
   }
 
   return (
-    <div className="mb-5 p-6">
-      <div className="mb-6 flex items-center justify-between border-b border-slate-300 pb-4">
-        <h2 className="text-left text-xl font-black text-slate-950">
+    <div className="mb-5 p-4 md:p-6">
+      <div className="dark:border-card-dark border-card-light mb-6 flex flex-col items-center justify-between gap-4 border-b pb-4 md:flex-row md:gap-0">
+        <h2 className="text-surface-dark dark:text-surface-light text-left text-xl font-black">
           Inventário Atual
         </h2>
         {!showForm && (
           <AddProductButton onClick={onAddClick} isLoading={loading} />
         )}
       </div>
+
       {products.length === 0 ? (
-        <p className="py-4 text-center italic text-slate-950">
+        <p className="text-surface-dark py-4 text-center italic">
           O inventário está vazio.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-md">
-          <table className="min-w-full">
-            <thead className="bg-indigo-950 text-slate-50">
-              <tr className="[&>*]:px-6 [&>*]:py-4 [&>*]:text-center [&>*]:text-xs [&>*]:font-black [&>*]:uppercase [&>*]:tracking-widest">
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Qtd.</th>
-                <th className="w-28">Ações</th>
-              </tr>
-            </thead>
+        <>
+          <div className="hidden overflow-x-auto rounded-md md:block">
+            <table className="min-w-full">
+              <thead className="bg-brand-darker text-surface-light">
+                <tr>
+                  <th className="px-6 py-4 text-center text-xs font-black uppercase tracking-widest">
+                    Nome
+                  </th>
+                  <th className="px-6 py-4 text-center text-xs font-black uppercase tracking-widest">
+                    Preço
+                  </th>
+                  <th className="px-6 py-4 text-center text-xs font-black uppercase tracking-widest">
+                    Qtd.
+                  </th>
+                  <th className="w-28">Ações</th>
+                </tr>
+              </thead>
 
-            <tbody className="divide-y divide-slate-300 bg-slate-200">
-              {products.map((product) => (
-                <tr
-                  key={product.id}
-                  className="text-slate-950 transition hover:bg-slate-300 [&>*]:px-6 [&>*]:py-4 [&>*]:text-center"
-                >
-                  <td>{product.name}</td>
-                  <td>
+              <tbody className="divide-card-medium bg-card-light dark:bg-card-dark divide-y dark:divide-slate-700">
+                {products.map((product) => (
+                  <tr
+                    key={product.id}
+                    className="hover:bg-card-medium text-surface-dark transition dark:text-slate-50 dark:hover:bg-slate-700"
+                  >
+                    <td className="px-6 py-4 text-center">{product.name}</td>
+                    <td className="px-6 py-4 text-center">
+                      {product.price.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      {product.quantity}
+                    </td>
+                    <td className="px-6 py-4">
+                      <button
+                        onClick={() => onEdit(product)}
+                        className="fill-surface-dark dark:fill-card-medium mr-4 size-6 transition-transform hover:scale-110"
+                      >
+                        <EditImg />
+                      </button>
+
+                      <button
+                        onClick={() => onDelete(product.id)}
+                        className="fill-surface-dark dark:fill-card-medium size-6 transition-transform hover:scale-110"
+                      >
+                        <DeleteImg />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:hidden">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="border-brand-darker dark:bg-card-dark bg-card-light dark:border-l-brand-dark flex justify-between rounded-lg border-l-4 p-4 shadow-sm"
+              >
+                <div className="flex flex-col items-start gap-2">
+                  <p className="text-surface-dark dark:text-surface-light font-semibold">
+                    {product.name}
+                  </p>
+                  <p>
                     {product.price.toLocaleString("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                     })}
-                  </td>
-                  <td>{product.quantity}</td>
-                  <td className="[&>*]:size-6 [&>*]:fill-slate-950 [&>*]:transition-transform hover:[&>*]:scale-110">
-                    <button onClick={() => onEdit(product)} className="mr-4">
-                      <EditImg />
-                    </button>
+                  </p>
+                  <p>{product.quantity} un.</p>
+                </div>
 
-                    <button onClick={() => onDelete(product.id)}>
-                      <DeleteImg />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                <div className="flex flex-col justify-between py-2 text-sm">
+                  <button
+                    onClick={() => onEdit(product)}
+                    className="dark:fill-card-medium fill-surface-dark size-7"
+                  >
+                    <EditImg />
+                  </button>
+                  <button
+                    onClick={() => onDelete(product.id)}
+                    className="dark:fill-card-medium fill-surface-dark size-7"
+                  >
+                    <DeleteImg />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

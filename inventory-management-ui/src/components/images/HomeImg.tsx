@@ -1,4 +1,4 @@
-// src/components/HomeImg.tsx
+// inventory-management-ui/src/components/HomeImg.tsx
 
 export const HomeImg = () => {
   return (
