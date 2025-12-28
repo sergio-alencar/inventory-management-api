@@ -1,7 +1,7 @@
 // inventory-management-ui/src/components/Pagination.tsx
 
 import React from "react";
-import ChevronImg from "./images/ChevronImg";
+import { ChevronImg } from "./images/ChevronImg";
 
 interface PaginationProps {
   current: number;
@@ -9,7 +9,7 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
+export const Pagination: React.FC<PaginationProps> = ({
   current,
   total,
   onPageChange,
@@ -19,24 +19,22 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(current - 1)}
         disabled={current === 1}
-        className="dark:fill-brand-light fill-brand-dark size-6 rotate-180 transition hover:scale-125 disabled:opacity-30 disabled:hover:scale-100"
+        className="transition hover:scale-125 disabled:opacity-30 disabled:hover:scale-100"
       >
-        <ChevronImg />
+        <ChevronImg className="fill-blue-darker dark:fill-gray-light size-6 rotate-180" />
       </button>
 
-      <span className="text-brand-primary select-none font-bold">
+      <span className="dark:text-gray-light select-none font-bold">
         {current} / {total}
       </span>
 
       <button
         onClick={() => onPageChange(current + 1)}
         disabled={current === total}
-        className="fill-brand-dark dark:fill-brand-light size-6 transition hover:scale-110 disabled:opacity-30 disabled:hover:scale-100"
+        className="transition hover:scale-125 disabled:opacity-30 disabled:hover:scale-100"
       >
-        <ChevronImg />
+        <ChevronImg className="fill-blue-darker dark:fill-gray-dark size-6" />
       </button>
     </div>
   );
 };
-
-export default Pagination;

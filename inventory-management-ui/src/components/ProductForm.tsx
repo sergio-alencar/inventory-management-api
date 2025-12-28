@@ -1,11 +1,11 @@
 // inventory-management-ui/src/components/ProductForm.tsx
 
 import React, { useEffect, useState } from "react";
-import type { Product } from "../types/Product";
+import type { Product, ProductFormData } from "../types";
 import { createProduct, updateProduct } from "../api";
 import { SaveImg } from "./images/SaveImg";
 import { CancelImg } from "./images/CancelImg";
-import FormField from "./FormField";
+import { FormField } from "./FormField";
 
 interface ProductFormProps {
   productToEdit: Product | null;
@@ -24,13 +24,13 @@ const maskCurrency = (value: string) => {
   }).format(numericValue);
 };
 
-const ProductForm: React.FC<ProductFormProps> = ({
+export const ProductForm: React.FC<ProductFormProps> = ({
   productToEdit,
   onSuccess,
   onCancel,
   onError,
 }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ProductFormData>({
     name: "",
     description: "",
     price: 0,
@@ -87,6 +87,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
         await updateProduct(productToEdit.id, {
           ...formData,
           id: productToEdit.id,
+          createdDate: productToEdit.createdDate,
         });
       } else {
         await createProduct(formData);
@@ -143,23 +144,23 @@ const ProductForm: React.FC<ProductFormProps> = ({
       onClick={onCancel}
     >
       <div
-        className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-brand-light p-8 shadow-2xl transition-all dark:bg-card-dark"
+        className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-slate-50 p-8 shadow-2xl transition-all dark:bg-blue-darker"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-6 flex flex-col items-center md:flex-row md:justify-between">
-          <h2 className="text-left text-2xl font-black text-card-dark dark:text-surface-light">
+          <h2 className="text-left text-2xl font-black">
             {productToEdit ? "Editar Produto" : "Adicionar Novo Produto"}
           </h2>
           <button
             onClick={onCancel}
-            className="order-first self-end font-black text-slate-400 hover:text-slate-600 dark:text-slate-300 dark:hover:text-surface-light md:order-2 md:self-center"
+            className="order-first self-end font-black text-slate-400 hover:text-slate-600 dark:text-slate-300 dark:hover:text-gray-light md:order-2 md:self-center"
           >
             ✕
           </button>
         </div>
 
         {errors.form && (
-          <p className="mb-4 text-sm font-bold text-error-dark">
+          <p className="mb-4 text-sm font-bold text-red-primary">
             {errors.form}
           </p>
         )}
@@ -182,7 +183,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
             label="Descrição"
             name="description"
             className="col-span-full"
-            value={formData.description}
+            value={formData.description ?? ""}
             onChange={handleChange}
           />
 
@@ -212,11 +213,9 @@ const ProductForm: React.FC<ProductFormProps> = ({
             <button
               type="submit"
               title="Salvar"
-              className="flex items-center justify-center gap-2 rounded-lg bg-brand-dark px-6 py-2 font-bold text-surface-light shadow-md shadow-brand-dark transition-all hover:scale-105 hover:bg-brand-dark dark:bg-brand-dark dark:shadow-brand-darker"
+              className="flex items-center justify-center gap-2 rounded-lg bg-blue-dark px-6 py-2 font-bold text-gray-light shadow-md transition-all hover:scale-105"
             >
-              <div className="size-6 fill-slate-50">
-                <SaveImg />
-              </div>
+              <SaveImg className="size-6 fill-gray-light" />
               Salvar
             </button>
 
@@ -224,11 +223,9 @@ const ProductForm: React.FC<ProductFormProps> = ({
               type="button"
               onClick={onCancel}
               title="Cancelar"
-              className="dark:hover:bg-slate-60 flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold text-slate-500 transition-colors hover:bg-card-light dark:text-slate-400 dark:hover:bg-slate-700"
+              className="dark:hover:bg-slate-60 flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold text-slate-500 transition-all hover:scale-105"
             >
-              <div className="size-6 fill-slate-400">
-                <CancelImg />
-              </div>
+              <CancelImg className="size-6 fill-slate-500" />
               Cancelar
             </button>
           </div>
@@ -237,5 +234,3 @@ const ProductForm: React.FC<ProductFormProps> = ({
     </div>
   );
 };
-
-export default ProductForm;

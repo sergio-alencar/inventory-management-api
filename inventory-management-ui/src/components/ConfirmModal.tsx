@@ -1,4 +1,4 @@
-// src/components/ConfirmModal.tsx
+// inventory-management-ui/src/components/ConfirmModal.tsx
 
 import React, { useEffect } from "react";
 import { DeleteImg } from "./images/DeleteImg";
@@ -12,7 +12,7 @@ interface ConfirmModalProps {
   onCancel: () => void;
 }
 
-const ConfirmModal: React.FC<ConfirmModalProps> = ({
+export const ConfirmModal: React.FC<ConfirmModalProps> = ({
   isOpen,
   title,
   message,
@@ -37,13 +37,13 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
       onClick={onCancel}
     >
       <div
-        className="bg-surface-light dark:bg-card-dark w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-center align-middle shadow-xl transition-all md:text-left"
+        className="dark:bg-blue-darker w-full max-w-md transform overflow-hidden rounded-2xl bg-slate-50 p-6 text-center align-middle shadow-xl transition-all md:text-left"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="text-surface-dark dark:text-surface-light mb-2 text-lg font-bold leading-6">
+        <h3 className="text-blue-darker dark:text-gray-light mb-2 text-lg font-bold leading-6">
           {title}
         </h3>
-        <p className="dark:text-card-light text-card-dark mb-6 text-sm">
+        <p className="text-blue-darker dark:text-gray-dark mb-6 text-sm">
           {message}
         </p>
 
@@ -51,22 +51,18 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
           <button
             type="button"
             onClick={onCancel}
-            className="flex min-w-full items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm font-semibold text-slate-500 transition hover:scale-105 md:min-w-fit dark:text-slate-400"
+            className="flex min-w-full items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm font-semibold text-slate-500 transition hover:scale-105 md:min-w-fit"
           >
-            <div className="dark:fill-slate4200 size-6 fill-slate-400">
-              <CancelImg />
-            </div>
+            <CancelImg className="size-6 fill-slate-500" />
             Cancelar
           </button>
 
           <button
             type="button"
             onClick={onConfirm}
-            className="text-surface-light flex min-w-full items-center justify-center gap-1 text-nowrap rounded-lg bg-red-800 px-3 py-2 text-sm font-semibold shadow shadow-red-200 transition hover:scale-105 md:min-w-fit dark:shadow-red-950"
+            className="bg-red-primary text-gray-light flex min-w-full items-center justify-center gap-1 text-nowrap rounded-lg px-3 py-2 text-sm font-semibold transition hover:scale-105 md:min-w-fit"
           >
-            <div className="fill-surface-light size-6">
-              <DeleteImg />
-            </div>
+            <DeleteImg className="fill-gray-light size-6" />
             Sim, Excluir
           </button>
         </div>
@@ -74,5 +70,3 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
     </div>
   );
 };
-
-export default ConfirmModal;

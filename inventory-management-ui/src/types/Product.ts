@@ -1,4 +1,4 @@
-// src/types/Product.ts
+// inventory-management-ui/src/types/Product.ts
 
 export interface Product {
   id: number;
@@ -8,3 +8,5 @@ export interface Product {
   quantity: number;
   createdDate: string;
 }
+
+export type ProductFormData = Omit<Product, "id" | "createdDate">;

@@ -1,4 +1,4 @@
-// src/components/ErrorModal.tsx
+// inventory-management-ui/src/components/ErrorModal.tsx
 
 import React from "react";
 
@@ -8,7 +8,7 @@ interface ErrorModalProps {
   onClose: () => void;
 }
 
-const ErrorModal: React.FC<ErrorModalProps> = ({
+export const ErrorModal: React.FC<ErrorModalProps> = ({
   isOpen,
   message,
   onClose,
@@ -17,11 +17,11 @@ const ErrorModal: React.FC<ErrorModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-      <div className="bg-surface-light dark:bg-card-dark w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
-        <h3 className="text-error-primary mb-2 text-lg font-bold leading-6">
+      <div className="dark:bg-blue-darker w-full max-w-md transform overflow-hidden rounded-2xl bg-slate-50 p-6 text-left align-middle shadow-xl transition-all">
+        <h3 className="text-red-primary mb-2 text-lg font-bold leading-6">
           Erro
         </h3>
-        <p className="text-card-dark dark:text-card-light mb-6 text-sm">
+        <p className="text-blue-darker dark:text-gray-light mb-6 text-sm">
           {message}
         </p>
 
@@ -29,7 +29,7 @@ const ErrorModal: React.FC<ErrorModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="text-card-dark bg-card-light dark:text-card-light dark:bg-brand-primary rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:scale-105"
+            className="bg-blue-light text-gray-light rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:scale-105"
           >
             OK
           </button>
@@ -38,5 +38,3 @@ const ErrorModal: React.FC<ErrorModalProps> = ({
     </div>
   );
 };
-
-export default ErrorModal;

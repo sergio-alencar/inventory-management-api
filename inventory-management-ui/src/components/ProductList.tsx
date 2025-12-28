@@ -4,7 +4,7 @@ import React from "react";
 import type { Product } from "../types/Product";
 import { EditImg } from "./images/EditImg";
 import { DeleteImg } from "./images/DeleteImg";
-import AddProductButton from "./AddProductButton";
+import { AddProductButton } from "./AddProductButton";
 
 interface ProductListProps {
   products: Product[];
@@ -16,7 +16,7 @@ interface ProductListProps {
   showForm: boolean;
 }
 
-const ProductList: React.FC<ProductListProps> = ({
+export const ProductList: React.FC<ProductListProps> = ({
   products,
   loading,
   error,
@@ -26,16 +26,18 @@ const ProductList: React.FC<ProductListProps> = ({
   showForm,
 }) => {
   if (loading) {
-    return <div className="p-8 text-center text-indigo-950">Carregando...</div>;
+    return (
+      <div className="text-blue-darker p-8 text-center">Carregando...</div>
+    );
   }
 
   if (error) {
-    return <div className="p-8 text-center text-red-900">{error}</div>;
+    return <div className="text-red-primary p-8 text-center">{error}</div>;
   }
 
   if (!products || !Array.isArray(products)) {
     return (
-      <div className="p-8 text-center text-slate-600">
+      <div className="text-gray-dark p-8 text-center">
         Nenhum produto encontrado.
       </div>
     );
@@ -43,8 +45,8 @@ const ProductList: React.FC<ProductListProps> = ({
 
   return (
     <div className="mb-5 p-4 md:p-6">
-      <div className="mb-6 flex flex-col items-center justify-between gap-4 border-b border-card-light pb-4 dark:border-card-dark md:flex-row md:gap-0">
-        <h2 className="text-left text-xl font-black text-surface-dark dark:text-surface-light">
+      <div className="border-gray-dark mb-6 flex flex-col items-center justify-between gap-4 border-b pb-4 md:flex-row md:gap-0">
+        <h2 className="dark:text-gray-dark text-left text-xl font-black">
           Inventário Atual
         </h2>
         {!showForm && (
@@ -53,14 +55,14 @@ const ProductList: React.FC<ProductListProps> = ({
       </div>
 
       {products.length === 0 ? (
-        <p className="py-4 text-center italic text-surface-dark dark:text-surface-light">
+        <p className="text-blue-darker dark:text-gray-light py-4 text-center italic">
           O inventário está vazio.
         </p>
       ) : (
         <>
           <div className="hidden overflow-x-auto rounded-md md:block">
             <table className="min-w-full">
-              <thead className="bg-brand-darker text-surface-light">
+              <thead className="bg-blue-darker text-gray-light dark:bg-slate-950">
                 <tr>
                   <th className="px-6 py-4 text-center text-xs font-black uppercase tracking-widest">
                     Nome
@@ -77,11 +79,11 @@ const ProductList: React.FC<ProductListProps> = ({
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-card-medium bg-card-light dark:divide-slate-700 dark:bg-card-dark">
+              <tbody className="dark:divide-blue-darker divide-y divide-slate-50 bg-slate-200 dark:bg-slate-800">
                 {products.map((product) => (
                   <tr
                     key={product.id}
-                    className="text-surface-dark transition hover:bg-card-medium dark:text-slate-50 dark:hover:bg-slate-700"
+                    className="transition hover:bg-white dark:hover:bg-slate-700"
                   >
                     <td className="px-6 py-4 text-center">{product.name}</td>
                     <td className="px-6 py-4 text-center">
@@ -96,16 +98,16 @@ const ProductList: React.FC<ProductListProps> = ({
                     <td className="px-6 py-4">
                       <button
                         onClick={() => onEdit(product)}
-                        className="mr-4 size-6 fill-surface-dark transition-transform hover:scale-110 dark:fill-card-medium"
+                        title="Editar Produto"
                       >
-                        <EditImg />
+                        <EditImg className="dark:fill-gray-light fill-blue-darker mr-4 size-6 transition-transform hover:scale-110" />
                       </button>
 
                       <button
                         onClick={() => onDelete(product.id)}
-                        className="size-6 fill-surface-dark transition-transform hover:scale-110 dark:fill-card-medium"
+                        title="Deletar Produto"
                       >
-                        <DeleteImg />
+                        <DeleteImg className="dark:fill-gray-light fill-blue-darker size-6 transition-transform hover:scale-110" />
                       </button>
                     </td>
                   </tr>
@@ -118,12 +120,10 @@ const ProductList: React.FC<ProductListProps> = ({
             {products.map((product) => (
               <div
                 key={product.id}
-                className="flex justify-between rounded-lg border-l-4 border-brand-darker bg-card-light p-4 shadow-sm dark:border-l-brand-dark dark:bg-card-dark"
+                className="border-blue-darker bg-gray-dark dark:border-gray-dark flex justify-between rounded-lg border-l-4 p-4 shadow-sm dark:bg-slate-800"
               >
                 <div className="flex flex-col items-start gap-2">
-                  <p className="font-semibold text-surface-dark dark:text-surface-light">
-                    {product.name}
-                  </p>
+                  <p className="font-semibold">{product.name}</p>
                   <p>
                     {product.price.toLocaleString("pt-BR", {
                       style: "currency",
@@ -136,15 +136,15 @@ const ProductList: React.FC<ProductListProps> = ({
                 <div className="flex flex-col justify-between py-2 text-sm">
                   <button
                     onClick={() => onEdit(product)}
-                    className="size-7 fill-surface-dark dark:fill-card-medium"
+                    title="Editar Produto"
                   >
-                    <EditImg />
+                    <EditImg className="fill-blue-darker dark:fill-gray-light size-7" />
                   </button>
                   <button
                     onClick={() => onDelete(product.id)}
-                    className="size-7 fill-surface-dark dark:fill-card-medium"
+                    title="Deletar Produto"
                   >
-                    <DeleteImg />
+                    <DeleteImg className="fill-blue-darker dark:fill-gray-light size-7" />
                   </button>
                 </div>
               </div>
@@ -155,5 +155,3 @@ const ProductList: React.FC<ProductListProps> = ({
     </div>
   );
 };
-
-export default ProductList;

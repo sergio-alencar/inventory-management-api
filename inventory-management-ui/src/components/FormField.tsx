@@ -13,7 +13,7 @@ interface FormFieldProps {
   className?: string;
 }
 
-const FormField: React.FC<FormFieldProps> = ({
+export const FormField: React.FC<FormFieldProps> = ({
   label,
   name,
   type = "text",
@@ -25,10 +25,7 @@ const FormField: React.FC<FormFieldProps> = ({
 }) => {
   return (
     <div className={className}>
-      <label
-        htmlFor={name}
-        className="mb-1 block text-sm font-bold text-card-dark dark:text-card-light"
-      >
+      <label htmlFor={name} className="mb-1 block text-sm font-bold">
         {label}
       </label>
       <input
@@ -38,14 +35,14 @@ const FormField: React.FC<FormFieldProps> = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full rounded border p-2 outline-none transition-all dark:bg-slate-600 ${
+        className={`w-full rounded border p-2 outline-none transition-all dark:bg-slate-700 ${
           error
-            ? "border-error-primary focus:ring-2 focus:ring-red-200"
-            : "border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-indigo-200 dark:border-card-dark"
+            ? "border-red-primary focus:ring-1 focus:ring-red-400"
+            : "focus:border-blue-dark border-gray-dark focus:ring-1 focus:ring-indigo-200 dark:focus:border-slate-50"
         }`}
       />
       <p
-        className="min-h-[20px] text-xs font-bold text-error-primary transition-all"
+        className="text-red-primary min-h-[20px] pt-1 text-xs font-bold transition-all"
         aria-live="polite"
       >
         {error ? error : " "}
@@ -53,5 +50,3 @@ const FormField: React.FC<FormFieldProps> = ({
     </div>
   );
 };
-
-export default FormField;

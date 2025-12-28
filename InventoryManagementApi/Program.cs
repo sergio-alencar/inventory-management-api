@@ -19,9 +19,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var connectionString =
+    Environment.GetEnvironmentVariable("DATABASE_URL")
+    ?? builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+{
+    if (connectionString != null && connectionString.Contains("Host="))
+    {
+        options.UseNpgsql(connectionString);
+    }
+    else
+    {
+        options.UseSqlServer(connectionString);
+    }
+});
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
@@ -30,7 +42,13 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(
         name: MyAllowSpecificOrigins,
-        policy => policy.WithOrigins("http://localhost:5173").AllowAnyHeader().AllowAnyMethod()
+        policy =>
+        {
+            policy
+                .WithOrigins("http://localhost:5173", "https://xxx.vercel.app")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        }
     );
 });
 
@@ -38,14 +56,16 @@ var app = builder.Build();
 
 app.UseMiddleware<InventoryManagementApi.Middleware.ExceptionMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors(MyAllowSpecificOrigins);
-app.UseHttpsRedirection();
+
+if (!app.Environment.isDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

@@ -1,18 +1,18 @@
 // inventory-management-ui/src/App.tsx
 
 import { useCallback, useEffect, useState } from "react";
-import ProductList from "./components/ProductList";
-import ProductForm from "./components/ProductForm";
-import type { Product } from "./types/Product";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { ProductList } from "./components/ProductList";
+import { ProductForm } from "./components/ProductForm";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import "./App.css";
 import { deleteProduct, fetchProducts } from "./api";
-import ConfirmModal from "./components/ConfirmModal";
-import ErrorModal from "./components/ErrorModal";
-import Pagination from "./components/Pagination";
+import { ConfirmModal } from "./components/ConfirmModal";
+import { ErrorModal } from "./components/ErrorModal";
+import { Pagination } from "./components/Pagination";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import ThemeToggle from "./components/ThemeToggle";
+import { ThemeToggle } from "./components/ThemeToggle";
+import type { Product } from "./types";
 
 const AppContent = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -35,7 +35,7 @@ const AppContent = () => {
       setLoading(true);
       const response = await fetchProducts(page, pageSize);
 
-      if (response.data && response.data.items) {
+      if (response.data) {
         setProducts(response.data.items);
         setTotalPages(response.data.totalPages);
         setCurrentPage(response.data.pageNumber);
@@ -43,7 +43,7 @@ const AppContent = () => {
 
       setError(null);
     } catch (err) {
-      setError("Falha ao procurar produtos.");
+      setError("Failed fetching products.");
       console.error(err);
     } finally {
       setLoading(false);
@@ -98,7 +98,7 @@ const AppContent = () => {
   };
 
   return (
-    <div className="bg-surface-light text-surface-dark dark:bg-surface-dark dark:text-surface-light flex min-h-screen flex-col justify-between transition-colors duration-300">
+    <div className="flex min-h-screen flex-col justify-between bg-slate-50 text-blue-darker transition-colors duration-300 dark:bg-blue-darker dark:text-gray-light">
       <div>
         <div className="absolute right-4 top-4 z-50 md:right-8 md:top-6">
           <ThemeToggle />

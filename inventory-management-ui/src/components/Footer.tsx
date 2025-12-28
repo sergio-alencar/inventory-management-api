@@ -1,8 +1,8 @@
-// src/components/Footer.tsx
+// inventory-management-ui/src/components/Footer.tsx
 
-const Footer = () => {
+export const Footer = () => {
   return (
-    <footer className="text-surface-darker dark:text-surface-light w-full py-4 text-center text-xs font-semibold">
+    <footer className="text-blue-darker dark:text-gray-light w-full py-4 text-center text-xs font-semibold">
       <p>
         &copy;{" "}
         <a
@@ -17,5 +17,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

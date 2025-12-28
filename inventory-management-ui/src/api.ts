@@ -1,23 +1,49 @@
 // inventory-management-ui/src/api.ts
 
 import axios from "axios";
-import type { Product } from "./types/Product";
+import type { AxiosResponse } from "axios";
+import type { Product, ProductFormData, PagedResponse } from "./types";
+
+const API_URL = "http://localhost:5155/api";
 
 const api = axios.create({
-  baseURL: "http://localhost:5155/api",
+  baseURL: API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-export const fetchProducts = (page: number = 1, size: number = 5) =>
-  api.get(`/Products?pageNumber=${page}&pageSize=${size}`);
+export const fetchProducts = (
+  page: number,
+  pageSize: number,
+): Promise<AxiosResponse<PagedResponse<Product>>> => {
+  return api.get<PagedResponse<Product>>("/products", {
+    params: {
+      pageNumber: page,
+      pageSize: pageSize,
+    },
+  });
+};
 
-export const createProduct = (product: Omit<Product, "id" | "createdDate">) =>
-  api.post<Product>("/Products", product);
+export const fetchProductById = (
+  id: number,
+): Promise<AxiosResponse<Product>> => {
+  return api.get<Product>(`/products/${id}`);
+};
+
+export const createProduct = (
+  product: ProductFormData,
+): Promise<AxiosResponse<Product>> => {
+  return api.post<Product>("/products", product);
+};
 
 export const updateProduct = (
   id: number,
-  product: Omit<Product, "createdDate">,
-) => api.put(`/Products/${id}`, product);
+  product: Product,
+): Promise<AxiosResponse<Product>> => {
+  return api.put<Product>(`/products/${id}`, product);
+};
 
-export const deleteProduct = (id: number) => api.delete(`/Products/${id}`);
-
-export default api;
+export const deleteProduct = (id: number): Promise<AxiosResponse<void>> => {
+  return api.delete<void>(`/products/${id}`);
+};

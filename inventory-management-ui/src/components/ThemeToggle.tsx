@@ -5,35 +5,25 @@ import { useTheme } from "../contexts/ThemeContext";
 import { LightModeImg } from "./images/LightModeImg";
 import { DarkModeImg } from "./images/DarkModeImg";
 
-const ThemeToggle: React.FC = () => {
+export const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
 
   return (
     <button
       onClick={toggleTheme}
-      className={`relative inline-flex h-7 w-14 select-none items-center rounded-full outline-none transition-colors duration-500 focus:outline-none ${isDark ? "bg-brand-primary" : "bg-card-medium"}`}
-      title="Alternar Tema"
+      className={"relative select-none"}
+      title="Alternar Modo"
     >
-      <span className="sr-only">Alternar modo escuro</span>
       <span
-        className={`flex size-5 transform items-center justify-center rounded-full shadow-lg ring-0 transition duration-300 ease-in-out ${
-          isDark ? "translate-x-8 bg-indigo-500" : "translate-x-1 bg-slate-50"
-        }`}
+        className={`flex size-10 items-center justify-center rounded-full shadow-lg transition duration-300 ease-in-out ${isDark ? "bg-gray-light" : "bg-blue-darker"} `}
+        title={isDark ? "Modo Escuro" : "Modo Claro"}
       >
         {!isDark && (
-          <div className="fill-brand-darker w-3">
-            <LightModeImg />
-          </div>
+          <LightModeImg className="fill-gray-light w-5 ease-in-out" />
         )}
-        {isDark && (
-          <div className="fill-brand-light w-3">
-            <DarkModeImg />
-          </div>
-        )}
+        {isDark && <DarkModeImg className="fill-blue-darker w-5 ease-in-out" />}
       </span>
     </button>
   );
 };
-
-export default ThemeToggle;
