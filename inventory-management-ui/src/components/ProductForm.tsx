@@ -62,6 +62,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
     if (!formData.name.trim()) {
       newErrors.name = "O nome é obrigatório.";
+    } else if (formData.name.length > 100) {
+      newErrors.name = "O nome deve ter no máximo 100 caracteres.";
+    }
+
+    if (formData.description && formData.description.length > 500) {
+      newErrors.description = "A descrição deve ter no máximo 500 caracteres.";
     }
 
     if (!formData.price || formData.price <= 0) {
@@ -70,8 +76,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       newErrors.price = "O preço máximo permitido é R$ 999.999,99.";
     }
 
-    if (formData.quantity < 0) {
+    if (formData.quantity === 0 || formData.quantity < 0) {
       newErrors.quantity = "A quantidade não pode ser negativa.";
+    } else if (formData.quantity > 999999) {
+      newErrors.quantity = "A quantidade máxima é 999.999.";
     }
 
     setErrors(newErrors);
@@ -211,9 +219,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             className="col-span-1"
             value={formData.quantity}
             onChange={handleChange}
-            min={0}
-            max={10000}
             error={errors.quantity}
+            min={0}
+            max={999999}
           />
 
           <div className="pt6 col-span-full mt-6 flex flex-col justify-end gap-3 sm:flex-row">
