@@ -64,8 +64,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       newErrors.name = "O nome é obrigatório.";
     }
 
-    if (formData.price <= 0) {
+    if (!formData.price || formData.price <= 0) {
       newErrors.price = "O preço deve ser maior que zero.";
+    } else if (formData.price > 999999.99) {
+      newErrors.price = "O preço máximo permitido é R$ 999.999,99.";
     }
 
     if (formData.quantity < 0) {
@@ -81,10 +83,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     setErrors({});
 
     if (!validate()) return;
-
-    if (Number(formData.price) > 999999.99) {
-      alert("O preço máximo permitido é R$ 999.999,99.");
-    }
 
     try {
       if (productToEdit) {
