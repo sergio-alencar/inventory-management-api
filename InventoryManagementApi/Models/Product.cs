@@ -11,6 +11,6 @@ namespace InventoryManagementApi.Models
         public string? Description { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }
