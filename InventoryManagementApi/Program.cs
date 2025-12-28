@@ -61,11 +61,12 @@ builder.Services.AddCors(options =>
             policy
                 .WithOrigins(
                     "http://localhost:5173",
-                    "https://inventory-management-api-vercel-824xkx6k7.vercel.app",
-                    "https://inventory-management-api-vercel.vercel.app/"
+                    "https://inventory-management-api-vercel.vercel.app",
+                    "https://inventory-management-api-vercel-824xkx6k7.vercel.app"
                 )
                 .AllowAnyHeader()
-                .AllowAnyMethod();
+                .AllowAnyMethod()
+                .SetIsOriginAllowedToAllowWildcardSubdomains();
         }
     );
 });
