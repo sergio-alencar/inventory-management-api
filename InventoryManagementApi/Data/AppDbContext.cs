@@ -16,10 +16,16 @@ namespace InventoryManagementApi.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Product>(entity =>
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
-                entity.Property(p => p.Price).HasColumnType("decimal(18,2)");
-            });
+                var properties = entityType
+                    .GetProperties()
+                    .Where(p => p.ClrType == typeof(DateTime) || p.ClrType == typeof(DateTime?));
+                foreach (var property in properties)
+                {
+                    property.setColumnType("timestamp without time zone");
+                }
+            }
         }
     }
 }

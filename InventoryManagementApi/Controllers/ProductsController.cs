@@ -1,6 +1,6 @@
 // InventoryManagementApi/Controllers/ProductsController.cs
 
-using InventoryManagementApi.Models;
+using InventoryManagementApi.Data.Interface;
 using InventoryManagementApi.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -58,7 +58,7 @@ namespace InventoryManagementApi.Controllers
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
             product.Id = 0;
-            product.CreatedDate = DateTime.Now;
+            product.CreatedDate = DateTime.UtcNow;
 
             await _repository.AddAsync(product);
             var success = await _repository.SaveChangesAsync();

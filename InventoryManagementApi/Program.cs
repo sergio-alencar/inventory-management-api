@@ -8,6 +8,8 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("logs/inventory_logs.txt", rollingInterval: RollingInterval.Day)
@@ -72,7 +74,6 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.EnsureDeleted();
     db.Database.EnsureCreated();
 }
 
