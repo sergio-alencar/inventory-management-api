@@ -27,17 +27,17 @@ export const ProductList: React.FC<ProductListProps> = ({
 }) => {
   if (loading) {
     return (
-      <div className="text-blue-darker p-8 text-center">Carregando...</div>
+      <div className="p-8 text-center text-blue-darker">Carregando...</div>
     );
   }
 
   if (error) {
-    return <div className="text-red-primary p-8 text-center">{error}</div>;
+    return <div className="p-8 text-center text-red-primary">{error}</div>;
   }
 
   if (!products || !Array.isArray(products)) {
     return (
-      <div className="text-gray-dark p-8 text-center">
+      <div className="p-8 text-center text-gray-dark">
         Nenhum produto encontrado.
       </div>
     );
@@ -45,8 +45,8 @@ export const ProductList: React.FC<ProductListProps> = ({
 
   return (
     <div className="mb-5 p-4 md:p-6">
-      <div className="border-gray-dark mb-6 flex flex-col items-center justify-between gap-4 border-b pb-4 md:flex-row md:gap-0">
-        <h2 className="dark:text-gray-dark text-left text-xl font-black">
+      <div className="mb-6 flex flex-col items-center justify-between gap-4 border-b border-gray-dark pb-4 md:flex-row md:gap-0">
+        <h2 className="text-left text-xl font-black dark:text-gray-dark">
           Inventário Atual
         </h2>
         {!showForm && (
@@ -55,7 +55,7 @@ export const ProductList: React.FC<ProductListProps> = ({
       </div>
 
       {products.length === 0 ? (
-        <p className="text-blue-darker dark:text-gray-light py-4 text-center italic">
+        <p className="py-4 text-center italic text-blue-darker dark:text-gray-light">
           O inventário está vazio.
         </p>
       ) : (
@@ -79,7 +79,7 @@ export const ProductList: React.FC<ProductListProps> = ({
                 </tr>
               </thead>
 
-              <tbody className="dark:divide-blue-darker divide-y divide-slate-50 bg-slate-200 dark:bg-slate-800">
+              <tbody className="divide-y divide-slate-50 bg-slate-200 dark:divide-blue-darker dark:bg-slate-800">
                 {products.map((product) => (
                   <tr
                     key={product.id}
@@ -100,14 +100,14 @@ export const ProductList: React.FC<ProductListProps> = ({
                         onClick={() => onEdit(product)}
                         title="Editar Produto"
                       >
-                        <EditImg className="dark:fill-gray-light fill-blue-darker mr-4 size-6 transition-transform hover:scale-110" />
+                        <EditImg className="mr-4 size-6 fill-blue-darker transition-transform hover:scale-110 dark:fill-gray-light" />
                       </button>
 
                       <button
                         onClick={() => onDelete(product.id)}
                         title="Deletar Produto"
                       >
-                        <DeleteImg className="dark:fill-gray-light fill-blue-darker size-6 transition-transform hover:scale-110" />
+                        <DeleteImg className="size-6 fill-blue-darker transition-transform hover:scale-110 dark:fill-gray-light" />
                       </button>
                     </td>
                   </tr>
@@ -120,7 +120,7 @@ export const ProductList: React.FC<ProductListProps> = ({
             {products.map((product) => (
               <div
                 key={product.id}
-                className="border-blue-darker bg-gray-dark dark:border-gray-dark flex justify-between rounded-lg border-l-4 p-4 shadow-sm dark:bg-slate-800"
+                className="flex justify-between rounded-lg border-l-4 border-blue-darker bg-slate-200 p-4 shadow-sm dark:border-gray-dark dark:bg-slate-800"
               >
                 <div className="flex flex-col items-start gap-2">
                   <p className="font-semibold">{product.name}</p>
@@ -138,13 +138,13 @@ export const ProductList: React.FC<ProductListProps> = ({
                     onClick={() => onEdit(product)}
                     title="Editar Produto"
                   >
-                    <EditImg className="fill-blue-darker dark:fill-gray-light size-7" />
+                    <EditImg className="size-7 fill-blue-darker dark:fill-gray-light" />
                   </button>
                   <button
                     onClick={() => onDelete(product.id)}
                     title="Deletar Produto"
                   >
-                    <DeleteImg className="fill-blue-darker dark:fill-gray-light size-7" />
+                    <DeleteImg className="size-7 fill-blue-darker dark:fill-gray-light" />
                   </button>
                 </div>
               </div>
