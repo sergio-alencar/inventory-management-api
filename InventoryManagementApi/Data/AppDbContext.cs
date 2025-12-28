@@ -23,7 +23,7 @@ namespace InventoryManagementApi.Data
                     .Where(p => p.ClrType == typeof(DateTime) || p.ClrType == typeof(DateTime?));
                 foreach (var property in properties)
                 {
-                    property.setColumnType("timestamp without time zone");
+                    property.SetColumnType("timestamp without time zone");
                 }
             }
         }

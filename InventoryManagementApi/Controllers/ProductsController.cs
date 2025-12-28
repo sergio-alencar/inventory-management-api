@@ -1,8 +1,9 @@
 // InventoryManagementApi/Controllers/ProductsController.cs
 
-using InventoryManagementApi.Data.Interface;
-using InventoryManagementApi.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using InventoryManagementApi.Models;
+using InventoryManagementApi.Data.Interfaces;
+using System.Threading.Tasks;
 
 namespace InventoryManagementApi.Controllers
 {
