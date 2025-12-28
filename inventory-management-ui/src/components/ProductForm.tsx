@@ -82,6 +82,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
     if (!validate()) return;
 
+    if (Number(formData.price) > 999999.99) {
+      alert("O preço máximo permitido é R$ 999.999,99.");
+    }
+
     try {
       if (productToEdit) {
         await updateProduct(productToEdit.id, {
