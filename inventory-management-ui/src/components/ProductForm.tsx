@@ -196,6 +196,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               minimumFractionDigits: 2,
             }).format(formData.price)}
             onChange={handleChange}
+            min={0}
+            max={999999.99}
+            step="0.01"
             error={errors.price}
           />
 
@@ -206,6 +209,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             className="col-span-1"
             value={formData.quantity}
             onChange={handleChange}
+            min={0}
+            max={10000}
             error={errors.quantity}
           />
 

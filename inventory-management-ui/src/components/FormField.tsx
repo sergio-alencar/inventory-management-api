@@ -11,6 +11,9 @@ interface FormFieldProps {
   placeholder?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
+  min?: number;
+  max?: number;
+  step?: string | number;
 }
 
 export const FormField: React.FC<FormFieldProps> = ({
@@ -22,6 +25,9 @@ export const FormField: React.FC<FormFieldProps> = ({
   placeholder,
   onChange,
   className = "",
+  min,
+  max,
+  step,
 }) => {
   return (
     <div className={className}>
@@ -35,14 +41,17 @@ export const FormField: React.FC<FormFieldProps> = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        min={min}
+        max={max}
+        step={step}
         className={`w-full rounded border p-2 outline-none transition-all dark:bg-slate-700 ${
           error
             ? "border-red-primary focus:ring-1 focus:ring-red-400"
-            : "focus:border-blue-dark border-gray-dark focus:ring-1 focus:ring-indigo-200 dark:focus:border-slate-50"
+            : "border-gray-dark focus:border-blue-dark focus:ring-1 focus:ring-indigo-200 dark:focus:border-slate-50"
         }`}
       />
       <p
-        className="text-red-primary min-h-[20px] pt-1 text-xs font-bold transition-all"
+        className="min-h-[20px] pt-1 text-xs font-bold text-red-primary transition-all"
         aria-live="polite"
       >
         {error ? error : " "}
