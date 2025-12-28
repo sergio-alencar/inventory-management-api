@@ -36,7 +36,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         var databaseUri = new Uri(rawConnectionString);
         var userInfo = databaseUri.UserInfo.Split(':');
 
-        var convertedConnectionString = $"Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+        var convertedConnectionString =
+            $"Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
 
         options.UseNpgsql(convertedConnectionString);
     }
@@ -68,7 +69,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate();
+    db.Database.EnsureCreated();
 }
 
 app.UseMiddleware<InventoryManagementApi.Middleware.ExceptionMiddleware>();
