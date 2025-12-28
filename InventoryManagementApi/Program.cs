@@ -19,26 +19,30 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString =
+var rawConnectionString =
     Environment.GetEnvironmentVariable("DATABASE_URL")
     ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     if (
-        !string.IsNullOrEmpty(connectionString)
+        !string.IsNullOrEmpty(rawConnectionString)
         && (
-            connectionString.Contains("postgresql://")
-            || connectionString.Contains("postgres://")
-            || connectionString.Contains("Host=")
+            rawConnectionString.StartsWith("postgres://")
+            || rawConnectionString.StartsWith("postgresql://")
         )
     )
     {
-        options.UseNpgsql(connectionString);
+        var databaseUri = new Uri(rawConnectionString);
+        var userInfo = databaseUri.UserInfo.Split(':');
+
+        var convertedConnectionString = $"Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+
+        options.UseNpgsql(convertedConnectionString);
     }
     else
     {
-        options.UseSqlServer(connectionString);
+        options.UseSqlServer(rawConnectionString);
     }
 });
 
