@@ -25,7 +25,14 @@ var connectionString =
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    if (connectionString != null && connectionString.Contains("Host="))
+    if (
+        !string.IsNullOrEmpty(connectionString)
+        && (
+            connectionString.Contains("postgresql://")
+            || connectionString.Contains("postgres://")
+            || connectionString.Contains("Host=")
+        )
+    )
     {
         options.UseNpgsql(connectionString);
     }
