@@ -1,9 +1,7 @@
-// InventoryManagementApi/Controllers/ProductsController.cs
-
-using Microsoft.AspNetCore.Mvc;
 using InventoryManagementApi.Models;
-using InventoryManagementApi.Data.Interfaces;
-using System.Threading.Tasks;
+using InventoryManagementApi.Models.DTOs;
+using InventoryManagementApi.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryManagementApi.Controllers
 {
@@ -11,22 +9,32 @@ namespace InventoryManagementApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _repository;
+        private readonly IProductService _service;
         private readonly ILogger<ProductsController> _logger;
 
-        public ProductsController(IProductRepository repository, ILogger<ProductsController> logger)
+        public ProductsController(IProductService service, ILogger<ProductsController> logger)
         {
-            _repository = repository;
+            _service = service;
             _logger = logger;
         }
 
         [HttpGet]
-        public async Task<ActionResult<PagedResponse<Product>>> GetProducts(
+        public async Task<ActionResult<PagedResponse<ProductDto>>> GetProducts(
             [FromQuery] int pageNumber = 1,
-            [FromQuery] int pageSize = 5
+            [FromQuery] int pageSize = 5,
+            [FromQuery] string? sortBy = "name",
+            [FromQuery] string? sortDirection = "asc"
         )
         {
-            _logger.LogInformation("Fetching page {Page} with {Size} items.", pageNumber, pageSize);
+            sortBy ??= "name";
+            sortDirection ??= "asc";
+            _logger.LogInformation(
+                "Fetching page {Page} size {Size} sort {SortBy} {Dir}",
+                pageNumber,
+                pageSize,
+                sortBy,
+                sortDirection
+            );
 
             if (pageNumber < 1)
             {
@@ -38,76 +46,71 @@ namespace InventoryManagementApi.Controllers
                 pageSize = 5;
             }
 
-            var pagedData = await _repository.GetAllAsync(pageNumber, pageSize);
-            return Ok(pagedData);
+            var allowedSort = new[] { "name", "price", "quantity" };
+            if (!allowedSort.Contains(sortBy.ToLower()))
+            {
+                sortBy = "name";
+            }
+
+            var allowedDir = new[] { "asc", "desc" };
+            if (!allowedDir.Contains(sortDirection.ToLower()))
+            {
+                sortDirection = "asc";
+            }
+
+            return Ok(await _service.GetAllAsync(pageNumber, pageSize, sortBy, sortDirection));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
-            var product = await _repository.GetByIdAsync(id);
-
-            if (product == null)
+            var dto = await _service.GetByIdAsync(id);
+            if (dto is null)
             {
-                return NotFound(new { message = $"Product with ID {id} not found." });
+                return NotFound(new { message = $"Product {id} not found." });
             }
 
-            return product;
+            return dto;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<ProductDto>> PostProduct(Product product)
         {
-            product.Id = 0;
-            product.CreatedDate = DateTime.UtcNow;
-
-            await _repository.AddAsync(product);
-            var success = await _repository.SaveChangesAsync();
-
-            if (!success)
-            {
-                return BadRequest(new { message = "Error saving product." });
-            }
-
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+            var dto = await _service.CreateAsync(product);
+            return CreatedAtAction(nameof(GetProduct), new { id = dto.Id }, dto);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
-            if (id != product.Id)
-            {
-                return BadRequest("IDs do not match.");
-            }
-
             try
             {
-                await _repository.UpdateAsync(product);
+                await _service.UpdateAsync(id, product);
                 return NoContent();
             }
-            catch (Exception)
+            catch (KeyNotFoundException ex)
             {
-                throw;
+                return NotFound(new { message = ex.Message });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
             }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            _logger.LogInformation("Trying to delete product ID: {Id}", id);
-
-            var product = await _repository.GetByIdAsync(id);
-            if (product == null)
+            _logger.LogInformation("Deleting product {Id}", id);
+            try
             {
-                _logger.LogWarning("Failed to delete: Product {Id} not found.", id);
-                return NotFound();
+                await _service.DeleteAsync(id);
+                return NoContent();
             }
-
-            await _repository.DeleteAsync(id);
-            await _repository.SaveChangesAsync();
-
-            _logger.LogInformation("Product {Id} successfully deleted.", id);
-            return NoContent();
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
         }
     }
 }

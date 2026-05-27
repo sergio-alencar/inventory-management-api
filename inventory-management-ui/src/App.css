@@ -1,3 +1,78 @@
 #root {
-  font-family: "Google Sans Flex", Arial, sans-serif;
+  @apply min-h-screen bg-win98-desktop font-['MS_W98_UI',_'Microsoft_Sans_Serif',_Tahoma,_sans-serif] text-win98-text;
+}
+
+h1,
+h2,
+h3 {
+  @apply m-0 font-['MS_W98_UI',_'Microsoft_Sans_Serif',_Tahoma,_sans-serif] uppercase text-win98-title;
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.window-title {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  @apply flex items-center justify-between px-1 py-[2px] text-sm font-bold text-white;
+  font-family: "MS W98 UI", "Microsoft Sans Serif", Tahoma, sans-serif;
+  text-transform: none;
+}
+
+.retro-btn {
+  @apply border-3d cursor-pointer bg-win98-button px-3 py-[3px] font-['MS_W98_UI',_'Microsoft_Sans_Serif',_Tahoma,_sans-serif] text-xs font-normal text-win98-text outline-none;
+}
+
+.retro-btn:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.retro-btn:focus {
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+}
+
+.retro-btn:disabled {
+  @apply pointer-events-none text-win98-shadow;
+}
+
+.retro-input {
+  @apply border-3d-inset bg-white px-1 py-[3px] font-['MS_W98_UI',_'Microsoft_Sans_Serif',_Tahoma,_sans-serif] text-xs outline-none;
+}
+
+.retro-input:focus {
+  outline: 1px dotted #000000;
+  outline-offset: -2px;
+}
+
+.retro-table {
+  @apply w-full border-collapse border-2 border-solid border-win98-shadow bg-white font-['MS_W98_UI',_'Microsoft_Sans_Serif',_Tahoma,_sans-serif];
+}
+
+.retro-table th {
+  @apply border-3d bg-win98-button px-[6px] py-1 text-left text-xs font-normal text-win98-text;
+}
+
+.retro-table td {
+  @apply border border-win98-button px-[6px] py-[3px] text-xs;
+}
+
+.retro-table tr:nth-child(even) {
+  @apply bg-[#f0f0f0];
+}
+
+.retro-table tr:hover {
+  @apply bg-[#ffff99];
+}
+
+hr {
+  @apply m-1 border border-solid border-win98-shadow;
+}
+
+.desktop-icon-selected {
+  background-color: #000080;
+  color: #ffffff;
 }

@@ -1,8 +1,8 @@
-// InventoryManagementApi/Program.cs
-
 using InventoryManagementApi.Data;
 using InventoryManagementApi.Data.Interfaces;
 using InventoryManagementApi.Data.Repositories;
+using InventoryManagementApi.Services.Implementations;
+using InventoryManagementApi.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -17,6 +17,8 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -45,7 +47,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     }
     else
     {
-        options.UseSqlServer(rawConnectionString);
+        options.UseNpgsql(rawConnectionString);
     }
 });
 

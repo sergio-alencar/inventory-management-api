@@ -1,5 +1,3 @@
-// InventoryManagementApi/Data/AppDbContext.cs
-
 using InventoryManagementApi.Models;
 using Microsoft.EntityFrameworkCore;
 

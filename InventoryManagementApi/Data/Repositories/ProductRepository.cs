@@ -1,8 +1,6 @@
-// InventoryManagementApi/Data/Repositories/ProductRepository.cs
-
-using InventoryManagementApi.Models;
 using InventoryManagementApi.Data.Interfaces;
-using InventoryManagementApi.Data;
+using InventoryManagementApi.Models;
+using InventoryManagementApi.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventoryManagementApi.Data.Repositories;
@@ -16,21 +14,53 @@ public class ProductRepository : IProductRepository
         _context = context;
     }
 
-    public async Task<PagedResponse<Product>> GetAllAsync(int pageNumber, int pageSize)
+    public async Task<PagedResponse<ProductDto>> GetAllAsync(
+        int pageNumber,
+        int pageSize,
+        string sortBy = "name",
+        string sortDirection = "asc"
+    )
     {
-        var totalItems = await _context.Products.CountAsync();
-        var items = await _context
-            .Products.OrderBy(p => p.Name)
+        var query = _context.Products.AsNoTracking();
+
+        query = (sortBy?.ToLower(), sortDirection?.ToLower()) switch
+        {
+            ("name", "asc") => query.OrderBy(p => p.Name),
+            ("name", "desc") => query.OrderByDescending(p => p.Name),
+            ("price", "asc") => query.OrderBy(p => p.Price),
+            ("price", "desc") => query.OrderByDescending(p => p.Price),
+            ("quantity", "asc") => query.OrderBy(p => p.Quantity),
+            ("quantity", "desc") => query.OrderByDescending(p => p.Quantity),
+            _ => query.OrderBy(p => p.Name),
+        };
+
+        var totalItems = await query.CountAsync();
+
+        var productEntities = await query
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
 
-        return new PagedResponse<Product>
+        var items = productEntities
+            .Select(p => new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description,
+                Price = p.Price,
+                Quantity = p.Quantity,
+                CreatedDate = p.CreatedDate,
+            })
+            .ToList();
+
+        return new PagedResponse<ProductDto>
         {
             Items = items,
             TotalItems = totalItems,
             PageNumber = pageNumber,
             PageSize = pageSize,
+            SortBy = sortBy,
+            SortDirection = sortDirection,
         };
     }
 
@@ -48,7 +78,9 @@ public class ProductRepository : IProductRepository
     {
         var product = await _context.Products.FindAsync(id);
         if (product != null)
+        {
             _context.Products.Remove(product);
+        }
     }
 
     public async Task<bool> SaveChangesAsync() => (await _context.SaveChangesAsync()) > 0;
