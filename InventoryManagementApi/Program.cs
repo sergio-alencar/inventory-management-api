@@ -80,10 +80,9 @@ var app = builder.Build();
 
 app.UseMiddleware<InventoryManagementApi.Middleware.ExceptionMiddleware>();
 
+app.UseCors(MyAllowSpecificOrigins);
 app.UseSwagger();
 app.UseSwaggerUI();
-
-app.UseCors(MyAllowSpecificOrigins);
 
 if (!app.Environment.IsDevelopment())
 {
