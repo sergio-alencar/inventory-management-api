@@ -71,6 +71,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               error={errors.quantity}
               min={0}
               max={999999}
+              step={1}
             />
 
             <div className="col-span-full mt-4 flex flex-col justify-end gap-3 sm:flex-row">

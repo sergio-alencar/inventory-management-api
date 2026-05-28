@@ -67,6 +67,8 @@ export function useProductForm({
 
     if (formData.quantity < 0) {
       newErrors.quantity = "The quantity cannot be negative.";
+    } else if (!Number.isInteger(formData.quantity)) {
+      newErrors.quantity = "The quantity must be a whole number.";
     } else if (formData.quantity > 999999) {
       newErrors.quantity = "The maximum allowed quantity is 999,999.";
     }
