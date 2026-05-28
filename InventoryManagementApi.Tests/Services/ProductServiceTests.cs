@@ -28,6 +28,7 @@ public class ProductServiceTests
         _service = new ProductService(_repositoryMock.Object, _mapper);
     }
 
+    // --- GetAllAsync ---
     [Fact]
     public async Task GetAllAsync_ShouldReturnPagedResponse()
     {
@@ -67,6 +68,7 @@ public class ProductServiceTests
         result.TotalItems.Should().Be(2);
     }
 
+    // --- GetByIdAsync ---
     [Fact]
     public async Task GetByIdAsync_ShouldReturnProductDto_WhenProductExists()
     {
@@ -96,9 +98,11 @@ public class ProductServiceTests
         result.Should().BeNull();
     }
 
+    // --- CreateAsync ---
     [Fact]
     public async Task CreateAsync_ShouldReturnProductDto_WhenProductIsCreated()
     {
+        // Arrange
         var newProduct = new Product
         {
             Id = 0,
@@ -110,12 +114,14 @@ public class ProductServiceTests
 
         _repositoryMock
             .Setup(r => r.AddAsync(It.IsAny<Product>()))
-            .Callback<Product>(p => p.Id = 100);
+            .Callback<Product>(p => p.Id = 100); // simula ID gerado
 
         _repositoryMock.Setup(r => r.SaveChangesAsync()).ReturnsAsync(true);
 
+        // Act
         var result = await _service.CreateAsync(newProduct);
 
+        // Assert
         result.Should().NotBeNull();
         result.Id.Should().Be(100);
         result.Name.Should().Be("New Product");
@@ -126,9 +132,11 @@ public class ProductServiceTests
         _repositoryMock.Verify(r => r.SaveChangesAsync(), Times.Once);
     }
 
+    // --- UpdateAsync ---
     [Fact]
     public async Task UpdateAsync_ShouldUpdateProduct_WhenValid()
     {
+        // Arrange
         var existingProduct = new Product
         {
             Id = 1,
@@ -152,13 +160,16 @@ public class ProductServiceTests
             .Setup(r => r.UpdateAsync(It.IsAny<Product>()))
             .Callback<Product>(p =>
             {
+                // simula a atualização do repositório (na vida real, o EF faria isso)
                 existingProduct.Name = p.Name;
                 existingProduct.Price = p.Price;
                 existingProduct.Quantity = p.Quantity;
             });
 
+        // Act
         await _service.UpdateAsync(1, updatedProduct);
 
+        // Assert
         existingProduct.Name.Should().Be("New Name");
         existingProduct.Price.Should().Be(20m);
         existingProduct.Quantity.Should().Be(15);
@@ -187,14 +198,18 @@ public class ProductServiceTests
         await act.Should().ThrowAsync<KeyNotFoundException>().WithMessage("Product 999 not found.");
     }
 
+    // --- DeleteAsync ---
     [Fact]
     public async Task DeleteAsync_ShouldCallDeleteAndSaveChanges()
     {
+        // Arrange
         _repositoryMock.Setup(r => r.DeleteAsync(It.IsAny<int>()));
         _repositoryMock.Setup(r => r.SaveChangesAsync()).ReturnsAsync(true);
 
+        // Act
         await _service.DeleteAsync(1);
 
+        // Assert
         _repositoryMock.Verify(r => r.DeleteAsync(1), Times.Once);
         _repositoryMock.Verify(r => r.SaveChangesAsync(), Times.Once);
     }
