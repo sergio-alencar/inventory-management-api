@@ -91,5 +91,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 app.MapControllers();
-app.Urls.Add("http://*:80");
+
+if (!app.Environment.IsDevelopment())
+{
+    app.Urls.Add("http://*:80");
+}
+
 app.Run();
