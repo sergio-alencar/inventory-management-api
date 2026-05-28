@@ -14,10 +14,9 @@ jobs:
         working-directory: ./InventoryManagementApi
 
     steps:
-      - name: Code checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: .NET setup
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
@@ -25,8 +24,13 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Compile project
+      - name: Build
         run: dotnet build --configuration Release --no-restore
+
+      - name: Run unit tests
+        run: dotnet test --no-restore --verbosity normal
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
 
   e2e:
     runs-on: ubuntu-latest
