@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { WindowIcon } from "../icons/WindowIcon";
 import { FolderIcon } from "../icons/FolderIcon";
+import windowIcon from "@/assets/images/windows-98-icon.png";
 import notepadIcon from "@/assets/images/notepad-icon.png";
 import type { StartMenuProps } from "@/types/components/taskbar";
 
@@ -57,7 +58,11 @@ export const StartMenu: React.FC<StartMenuProps> = ({
         className="retro-btn px-4 py-1 font-bold"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <WindowIcon className="mr-1 inline-block h-4 w-4" />
+        <img
+          src={windowIcon}
+          alt="Window"
+          className="mr-1 inline-block h-4 pb-1"
+        />
         Start
       </button>
 
